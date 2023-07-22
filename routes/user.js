@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var productHelpers = require('../helpers/product-helpers')
 var userHelpers = require('../helpers/user-helpers');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('user/index');
+  res.render('user/index', { user: req.session.user });
 });
 
 router.get('/login', (req, res) => {
@@ -51,10 +50,7 @@ router.post('/signup', (req, res) => {
     if (response.status) {
       req.session.user = response.user
       req.session.user.loggedIn = true
-      if (req.session.cart) {
-        req.session.cart = false; res.redirect('/cart')
-      }
-      else res.redirect('/')
+      res.redirect('/')
     } else {
       req.session.loginErr = "this email has already taken"
       res.redirect('/signup')
@@ -63,12 +59,12 @@ router.post('/signup', (req, res) => {
 })
 
 router.get('/form', (req, res) => {
-  res.render('user/form')
+  res.render('user/form', { user: req.session.user })
 })
 
 router.post('/form', (req, res) => {
   userHelpers.formTransfer(req.body).then((response) => {
-    res.render('user/subject')
+    res.render('user/subject', { user: req.session.user })
   })
 })
 
