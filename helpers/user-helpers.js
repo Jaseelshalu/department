@@ -3,13 +3,6 @@ var collection = require('../config/collection')
 var bcrypt = require('bcrypt')
 const { ObjectId } = require('mongodb')
 
-const Razorpay = require('razorpay');
-const { response } = require('express');
-var instance = new Razorpay({
-    key_id: 'rzp_test_KO8ZorTizYRi2t',
-    key_secret: '7DUOarTZ195rEwP9kFey1fjG',
-});
-
 module.exports = {
     doSignup: (userData) => {
         let response = {}
@@ -46,7 +39,7 @@ module.exports = {
     },
     formTransfer: (data) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(() => {
+            db.get().collection(collection.FORM_COLLECTION).insertOne(data).then((response) => {
                 resolve(response)
             })
         })
