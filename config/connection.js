@@ -5,8 +5,8 @@ const state = {
 };
 
 // mongodb connection string
-// const url = "mongodb://127.0.0.1:27017";
-const url = "mongodb+srv://jaseelsha:jaseelsha@shopping-cart.keyvqql.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb://127.0.0.1:27017";
+// const url = "mongodb+srv://jaseelsha:jaseelsha@shopping-cart.keyvqql.mongodb.net/?retryWrites=true&w=majority";
 // database name
 const dbName = "department";
 
