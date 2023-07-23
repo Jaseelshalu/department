@@ -17,8 +17,7 @@
     "logrocket": "^4.0.4",
     "mongodb": "^5.7.0",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.22",
-    "razorpay": "^2.8.6"
+    "nodemon": "^2.0.22"
   },
   "engines": {
     "node": "18.x"

@@ -24,13 +24,13 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let user = await db.get().collection(collection.USER_COLLECTION).findOne({ Email: userData.Email })
             if (user) {
-                    if (user.Password === userData.Password) {
-                        response.user = user
-                        response.status = true
-                        resolve(response)
-                    } else {
-                        resolve({ status: false })
-                    }
+                if (user.Password === userData.Password) {
+                    response.user = user;
+                    response.status = true
+                    resolve(response)
+                } else {
+                    resolve({ status: false })
+                }
             } else {
                 resolve({ status: false })
             }
@@ -38,9 +38,14 @@ module.exports = {
     },
     formTransfer: (data) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.FORM_COLLECTION).insertOne(data).then((response) => {
-                resolve(response)
-            })
+            let exist = db.get().collection(collection.FORM_COLLECTION).findOne({ Name: data.Name })
+            if (exist) {
+                resolve(false)
+            } else {
+                db.get().collection(collection.FORM_COLLECTION).insertOne(data).then((response) => {
+                    resolve(response)
+                })
+            }
         })
     }
 }

@@ -2,8 +2,18 @@ var express = require('express');
 var router = express.Router();
 var userHelpers = require('../helpers/user-helpers');
 
+/* Session */
+
+const verifyLogin = (req, res, next) => {
+  if (req.session.user) {
+    next()
+  } else {
+    res.redirect('/login')
+  }
+}
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('user/index', { user: req.session.user });
 });
 
@@ -58,13 +68,18 @@ router.post('/signup', (req, res) => {
   })
 })
 
-router.get('/form', (req, res) => {
+router.get('/form', verifyLogin, (req, res) => {
   res.render('user/form', { user: req.session.user })
 })
 
 router.post('/form', (req, res) => {
   userHelpers.formTransfer(req.body).then((response) => {
-    res.render('user/subject', { user: req.session.user })
+    if (response) {
+      res.render('user/subject', { user: req.session.user, title: req.body.formRadio })
+    }
+    else {
+      res.redirect('/')
+    }
   })
 })
 
