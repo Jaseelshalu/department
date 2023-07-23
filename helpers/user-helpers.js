@@ -38,7 +38,7 @@ module.exports = {
     },
     formTransfer: (data) => {
         return new Promise(async (resolve, reject) => {
-            let exist = db.get().collection(collection.FORM_COLLECTION).findOne({ Name: data.Name })
+            let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ Name: data.Name })
             if (exist) {
                 resolve(false)
             } else {
