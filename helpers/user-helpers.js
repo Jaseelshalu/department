@@ -57,15 +57,14 @@ module.exports = {
     },
     unlockedItems: () => {
         return new Promise(async (resolve, reject) => {
-            const documents = await db.get().collection(collection.FORM_COLLECTION).find({ Program: { $exists: true } }).toArray();
+            const documents = await db.get().collection(collection.FORM_COLLECTION).find({ Name: { $exists: true } }).toArray();
             let count = documents.length
             let pr = {}
             for (i = 1; i <= count; i++) {
                 if (count >= i) {
-                    pr['sum' + i] = documents[i - 1].Program;
+                    pr['sum' + i] = documents[i - 1].Name;
                 }
             }
-            pr.count = count
             resolve(pr)
         })
     }
