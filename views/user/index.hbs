@@ -1,3 +1,20 @@
-<a href="/login"><h1>login</h1></a>
+<a href="/login">
+    <h1>login</h1>
+</a>
 
-<a href="/form"><h3>form</h3></a>
+<a href="/form">
+    <h3>form</h3>
+</a>
+
+<p id="hideMe">{{loginErr}}</p>
+
+<script>
+    function hideParagraph() {
+        var paragraph = document.getElementById("hideMe");
+        paragraph.style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(hideParagraph, 5000);
+    });
+</script>
