@@ -69,39 +69,39 @@ router.post('/signup', (req, res) => {
 })
 
 router.get('/form', verifyLogin, async (req, res) => {
-  let data = await userHelpers.unlockedItems()
+  let pr = await userHelpers.unlockedItems()
   let unlock = {}
-  for (i = 1; i <= data.length; i++) {
-    if (data['sum' + i] == "subject1") unlock.s1 = true
-    else if (data['sum' + i] == "subject1") unlock.s2 = true
-    else if (data['sum' + i] == "subject1") unlock.s3 = true
-    else if (data['sum' + i] == "subject1") unlock.s4 = true
-    else if (data['sum' + i] == "subject1") unlock.s5 = true
-    else if (data['sum' + i] == "subject1") unlock.s6 = true
-    else if (data['sum' + i] == "subject1") unlock.s7 = true
-    else if (data['sum' + i] == "subject1") unlock.s8 = true
-    else if (data['sum' + i] == "subject1") unlock.s9 = true
-    else if (data['sum' + i] == "subject1") unlock.s10 = true
-    else if (data['sum' + i] == "subject1") unlock.s11 = true
-    else if (data['sum' + i] == "subject1") unlock.s12 = true
-    else if (data['sum' + i] == "subject1") unlock.s13 = true
-    else if (data['sum' + i] == "subject1") unlock.s14 = true
-    else if (data['sum' + i] == "subject1") unlock.s15 = true
-    else if (data['sum' + i] == "subject1") unlock.s16 = true
-    else if (data['sum' + i] == "subject1") unlock.s17 = true
-    else if (data['sum' + i] == "subject1") unlock.s18 = true
-    else if (data['sum' + i] == "subject1") unlock.s19 = true
-    else if (data['sum' + i] == "subject1") unlock.s20 = true
-    else if (data['sum' + i] == "subject1") unlock.s21 = true
-    else if (data['sum' + i] == "subject1") unlock.s22 = true
-    else if (data['sum' + i] == "subject1") unlock.s23 = true
-    else if (data['sum' + i] == "subject1") unlock.s24 = true
-    else if (data['sum' + i] == "subject1") unlock.s25 = true
-    else if (data['sum' + i] == "subject1") unlock.s26 = true
-    else if (data['sum' + i] == "subject1") unlock.s27 = true
-    else if (data['sum' + i] == "subject1") unlock.s28 = true
-    else if (data['sum' + i] == "subject1") unlock.s29 = true
-    else if (data['sum' + i] == "subject1") unlock.s30 = true
+  for (i = 1; i <= pr.count; i++) {
+    if (pr['sum' + i] == "subject1") unlock.s1 = 'true'
+    else if (pr['sum' + i] == "subject2") unlock.s2 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s3 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s4 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s5 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s6 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s7 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s8 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s9 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s10 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s11 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s12 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s13 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s14 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s15 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s16 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s17 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s18 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s19 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s20 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s21 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s22 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s23 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s24 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s25 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s26 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s27 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s28 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s29 = 'true'
+    else if (pr['sum' + i] == "subject1") unlock.s30 = 'true'
   }
   res.render('user/form', { user: req.session.user, loginErr: req.session.loginErr, unlock })
 })
@@ -109,14 +109,14 @@ router.get('/form', verifyLogin, async (req, res) => {
 router.post('/form', (req, res) => {
   userHelpers.formTransfer(req.body).then((response) => {
     if (response.result) {
-      res.render('/user/subject', { user: req.session.user, title: req.body.formRadio })
+      res.render('user/subject', { user: req.session.user, title: req.body.formRadio })
     } else if (response.exist) {
       req.session.loginErr = response.exist
       res.redirect('/')
       req.session.err = false
     } else if (response.sub) {
       req.session.loginErr = response.sub
-      res.redirect('/user/form')
+      res.redirect('/form')
       req.session.loginErr = false
     } else {
       res.redirect('/')
