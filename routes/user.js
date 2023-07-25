@@ -71,7 +71,7 @@ router.post('/signup', (req, res) => {
 router.get('/form', verifyLogin, async (req, res) => {
   let data = await userHelpers.unlockedItems()
   let unlock = {}
-  for (i = 1; i <= data.length; i++) {
+  for (i = 1; i <= data.count; i++) {
     if (data['sum' + i] == "subject1") unlock.s1 = 'true'
     else if (data['sum' + i] == "subject2") unlock.s2 = 'true'
     else if (data['sum' + i] == "subject3") unlock.s3 = 'true'

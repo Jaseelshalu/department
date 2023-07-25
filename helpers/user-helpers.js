@@ -65,6 +65,7 @@ module.exports = {
                     pr['sum' + i] = documents[i - 1].Name;
                 }
             }
+            pr.count = count
             resolve(pr)
         })
     }
