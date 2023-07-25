@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.user = null
-  res.redirect('/')
+  res.redirect('/signup')
 })
 
 router.get('/signup', (req, res) => {
@@ -60,7 +60,7 @@ router.post('/signup', (req, res) => {
     if (response.status) {
       req.session.user = response.user
       req.session.user.loggedIn = true
-      res.redirect('/')
+      res.redirect('/logout')
     } else {
       req.session.loginErr = "this email has already taken"
       res.redirect('/signup')
@@ -109,7 +109,7 @@ router.get('/form', verifyLogin, async (req, res) => {
 router.post('/form', (req, res) => {
   userHelpers.formTransfer(req.body).then((response) => {
     if (response.result) {
-      res.render('/user/subject', { user: req.session.user, title: req.body.formRadio })
+      res.render('user/subject', { user: req.session.user, title: req.body.formRadio })
     } else if (response.exist) {
       req.session.loginErr = response.exist
       res.redirect('/')
