@@ -48,7 +48,7 @@ module.exports = {
                 response.sub = "This subject already taken"
                 resolve(response)
             } else {
-                db.get().collection(collection.FORM_COLLECTION).insertOne(data).then((result) => {
+                db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
                     resolve(response)
                 })
@@ -68,5 +68,13 @@ module.exports = {
             pr.count = count
             resolve(pr)
         })
-    }
+    },
+    // subject: () => {
+    //     return new Promise(async(resolve, reject) => {
+    //         let programs = await db.get().collection(collection.FORM_COLLECTION).find({ Program: { $exists: true } }).toArray();
+            
+    //         db.get().collection(collection.SUBJECT_COLLECTION).insertMany(sub)
+    //         resolve(sub)
+    //     })
+    // }
 }

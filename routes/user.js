@@ -107,9 +107,28 @@ router.get('/form', verifyLogin, async (req, res) => {
 })
 
 router.post('/form', (req, res) => {
-  userHelpers.formTransfer(req.body).then((response) => {
+  userHelpers.formTransfer(req.body).then(async (response) => {
     if (response.result) {
-      res.render('user/subject', { user: req.session.user, title: req.body.formRadio })
+      let sub = req.body.Program
+        if (sub == "subject5" || "subject10") sub = "قالون عن نافع"
+        else if (sub == "subject5" || "subject10") sub = "ورش عن نافع"
+        else if (sub == "subject18" || "subject24") sub = "البزي عن ابن كثير"
+        else if (sub == "subject11" || "subject16" || "subject13") sub = "قنبل عن ابن كثير"
+        else if (sub == "subject3" || "subject20" || "subject26") sub = "الدوري عن أبي عمرو"
+        else if (sub == "subject23" || "subject27") sub = "السوسي عن أبي عمرو"
+        else if (sub == "subject9" || "subject12" || "subject19") sub = "هشام عن ابن عامر"
+        else if (sub == "subject14" || "subject15") sub = "ابن ذكوان عن ابن عامر"
+        else if (sub == "subject22" || "subject30") sub = "شعبة عن عاصم"
+        else if (sub == "subject8" || "subject29") sub = "خلف عن حمزة"
+        else if (sub == "subject2" || "subject6" || "subject25") sub = "خلاد عن حمزة"
+        else if (sub == "subject7" || "subject21") sub = "ابو الحارث عن الكسائي"
+        else if (sub == "subject17" || "subject28") sub = "الدوري عن الكسائي"
+        let obj = {
+          Name: req.body.Name,
+          Program: sub
+        }
+        userHelpers.subTransfer()
+      res.render('user/subject', { user: req.session.user, title: req.body.formRadio, sub });
     } else if (response.exist) {
       req.session.loginErr = response.exist
       res.redirect('/')
@@ -122,6 +141,10 @@ router.post('/form', (req, res) => {
       res.redirect('/')
     }
   })
+})
+
+router.get('/subject', (req, res) => {
+  res.render('user/subject', { user: req.session.user, title: req.body.formRadio, sub });
 })
 
 module.exports = router;
