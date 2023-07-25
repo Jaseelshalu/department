@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.user = null
-  res.redirect('/signup')
+  res.redirect('/')
 })
 
 router.get('/signup', (req, res) => {
@@ -60,7 +60,7 @@ router.post('/signup', (req, res) => {
     if (response.status) {
       req.session.user = response.user
       req.session.user.loggedIn = true
-      res.redirect('/logout')
+      res.redirect('/')
     } else {
       req.session.loginErr = "this email has already taken"
       res.redirect('/signup')
