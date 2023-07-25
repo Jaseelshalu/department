@@ -72,36 +72,36 @@ router.get('/form', verifyLogin, async (req, res) => {
   let data = await userHelpers.unlockedItems()
   let unlock = {}
   for (i = 1; i <= data.length; i++) {
-    if (data['sum' + i] == "subject1") unlock.s1 = true
-    else if (data['sum' + i] == "subject1") unlock.s2 = true
-    else if (data['sum' + i] == "subject1") unlock.s3 = true
-    else if (data['sum' + i] == "subject1") unlock.s4 = true
-    else if (data['sum' + i] == "subject1") unlock.s5 = true
-    else if (data['sum' + i] == "subject1") unlock.s6 = true
-    else if (data['sum' + i] == "subject1") unlock.s7 = true
-    else if (data['sum' + i] == "subject1") unlock.s8 = true
-    else if (data['sum' + i] == "subject1") unlock.s9 = true
-    else if (data['sum' + i] == "subject1") unlock.s10 = true
-    else if (data['sum' + i] == "subject1") unlock.s11 = true
-    else if (data['sum' + i] == "subject1") unlock.s12 = true
-    else if (data['sum' + i] == "subject1") unlock.s13 = true
-    else if (data['sum' + i] == "subject1") unlock.s14 = true
-    else if (data['sum' + i] == "subject1") unlock.s15 = true
-    else if (data['sum' + i] == "subject1") unlock.s16 = true
-    else if (data['sum' + i] == "subject1") unlock.s17 = true
-    else if (data['sum' + i] == "subject1") unlock.s18 = true
-    else if (data['sum' + i] == "subject1") unlock.s19 = true
-    else if (data['sum' + i] == "subject1") unlock.s20 = true
-    else if (data['sum' + i] == "subject1") unlock.s21 = true
-    else if (data['sum' + i] == "subject1") unlock.s22 = true
-    else if (data['sum' + i] == "subject1") unlock.s23 = true
-    else if (data['sum' + i] == "subject1") unlock.s24 = true
-    else if (data['sum' + i] == "subject1") unlock.s25 = true
-    else if (data['sum' + i] == "subject1") unlock.s26 = true
-    else if (data['sum' + i] == "subject1") unlock.s27 = true
-    else if (data['sum' + i] == "subject1") unlock.s28 = true
-    else if (data['sum' + i] == "subject1") unlock.s29 = true
-    else if (data['sum' + i] == "subject1") unlock.s30 = true
+    if (data['sum' + i] == "subject1") unlock.s1 = 'true'
+    else if (data['sum' + i] == "subject2") unlock.s2 = 'true'
+    else if (data['sum' + i] == "subject3") unlock.s3 = 'true'
+    else if (data['sum' + i] == "subject4") unlock.s4 = 'true'
+    else if (data['sum' + i] == "subject5") unlock.s5 = 'true'
+    else if (data['sum' + i] == "subject6") unlock.s6 = 'true'
+    else if (data['sum' + i] == "subject7") unlock.s7 = 'true'
+    else if (data['sum' + i] == "subject8") unlock.s8 = 'true'
+    else if (data['sum' + i] == "subject9") unlock.s9 = 'true'
+    else if (data['sum' + i] == "subject10") unlock.s10 = 'true'
+    else if (data['sum' + i] == "subject11") unlock.s11 = 'true'
+    else if (data['sum' + i] == "subject12") unlock.s12 = 'true'
+    else if (data['sum' + i] == "subject13") unlock.s13 = 'true'
+    else if (data['sum' + i] == "subject14") unlock.s14 = 'true'
+    else if (data['sum' + i] == "subject15") unlock.s15 = 'true'
+    else if (data['sum' + i] == "subject16") unlock.s16 = 'true'
+    else if (data['sum' + i] == "subject17") unlock.s17 = 'true'
+    else if (data['sum' + i] == "subject18") unlock.s18 = 'true'
+    else if (data['sum' + i] == "subject19") unlock.s19 = 'true'
+    else if (data['sum' + i] == "subject20") unlock.s20 = 'true'
+    else if (data['sum' + i] == "subject21") unlock.s21 = 'true'
+    else if (data['sum' + i] == "subject22") unlock.s22 = 'true'
+    else if (data['sum' + i] == "subject23") unlock.s23 = 'true'
+    else if (data['sum' + i] == "subject24") unlock.s24 = 'true'
+    else if (data['sum' + i] == "subject25") unlock.s25 = 'true'
+    else if (data['sum' + i] == "subject26") unlock.s26 = 'true'
+    else if (data['sum' + i] == "subject27") unlock.s27 = 'true'
+    else if (data['sum' + i] == "subject28") unlock.s28 = 'true'
+    else if (data['sum' + i] == "subject29") unlock.s29 = 'true'
+    else if (data['sum' + i] == "subject30") unlock.s30 = 'true'
   }
   res.render('user/form', { user: req.session.user, loginErr: req.session.loginErr, unlock })
 })
