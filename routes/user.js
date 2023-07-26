@@ -128,7 +128,7 @@ router.post('/form', (req, res) => {
       req.session.err = false
     } else if (response.sub) {
       req.session.loginErr = response.sub
-      res.redirect('/user/form')
+      res.redirect('/form')
       req.session.loginErr = false
     } else {
       res.redirect('/')

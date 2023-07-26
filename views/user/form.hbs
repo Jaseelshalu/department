@@ -9,274 +9,304 @@
                         <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s1}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio1" value="قالون عن نافع">
-                                <p class="numIcon">1</p>
+                                {{#if unlock.s1}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">1</p>{{/if}}
                             </label>
                         </div>
                         <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s2}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="ورش عن نافع">
-                                <p class="numIcon">2</p>
+                                    id="formRadio2" value="ورش عن نافع">
+                                {{#if unlock.s2}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">2</p>{{/if}}
                             </label>
                         </div>
                        <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s3}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="البزي عن ابن كثير ">
-                                <p class="numIcon">3</p>
+                                    id="formRadio3" value="البزي عن ابن كثير ">
+                                {{#if unlock.s3}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">3</p>{{/if}}
                             </label>
                         </div>
                        <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s4}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="قنبل عن ابن كثير ">
-                                <p class="numIcon">4</p>
+                                    id="formRadio4" value="قنبل عن ابن كثير ">
+                                {{#if unlock.s4}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">4</p>{{/if}}
                             </label>
                         </div>
                        <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s5}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="الدوري عن أبي عمرو">
-                                <p class="numIcon">5</p>
+                                    id="formRadio5" value="الدوري عن أبي عمرو">
+                                {{#if unlock.s5}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">5</p>{{/if}}
                             </label>
                         </div>
                        <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s6}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="السوسي عن أبي عمرو">
-                                <p class="numIcon">6</p>
+                                    id="formRadio6" value="السوسي عن أبي عمرو">
+                                {{#if unlock.s6}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">6</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s7}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="هشام عن ابن عامر">
-                                <p class="numIcon">7</p>
+                                    id="formRadio7" value="هشام عن ابن عامر">
+                                {{#if unlock.s7}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">7</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s8}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="ابن ذكوان عن ابن عامر">
-                                <p class="numIcon">8</p>
+                                    id="formRadio8" value="ابن ذكوان عن ابن عامر">
+                                {{#if unlock.s8}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">8</p>{{/if}}
                             </label>
                         </div>
 
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="شعبة عن عاصم">
-                                <p class="numIcon">9</p>
+                                    id="formRadio9" value="شعبة عن عاصم">
+                                {{#if unlock.s9}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">9</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s10}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="الدوري عن الكسائي">
-                                <p class="numIcon">10</p>
+                                    id="formRadio10" value="الدوري عن الكسائي">
+                                {{#if unlock.s10}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">10</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s11}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="خلف عن حمزة">
-                                <p class="numIcon">11</p>
+                                    id="formRadio11" value="خلف عن حمزة">
+                                {{#if unlock.s11}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">11</p>{{/if}}
                             </label>
                         </div>
 
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s12}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="خلاد عن حمزة">
-                                <p class="numIcon">12</p>
+                                    id="formRadio12" value="خلاد عن حمزة">
+                                {{#if unlock.s12}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">12</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s13}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="ابو الحارث عن الكسائي">
-                                <p class="numIcon">13</p>
+                                    id="formRadio13" value="ابو الحارث عن الكسائي">
+                                {{#if unlock.s13}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">13</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s14}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="الدوري عن الكسائي">
-                                <p class="numIcon">14</p>
+                                    id="formRadio14" value="الدوري عن الكسائي">
+                                {{#if unlock.s14}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">14</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s15}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="قالون عن نافع">
-                                <p class="numIcon">15</p>
+                                    id="formRadio15" value="قالون عن نافع">
+                                {{#if unlock.s15}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">15</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s16}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="ورش عن نافع">
-                                <p class="numIcon">16</p>
+                                    id="formRadio16" value="ورش عن نافع">
+                                {{#if unlock.s16}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">16</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s17}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="البزي عن ابن كثير ">
-                                <p class="numIcon">17</p>
+                                    id="formRadio17" value="البزي عن ابن كثير ">
+                                {{#if unlock.s17}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">17</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s18}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="قنبل عن ابن كثير ">
-                                <p class="numIcon">18</p>
+                                    id="formRadio18" value="قنبل عن ابن كثير ">
+                                {{#if unlock.s18}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">18</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s19}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="الدوري عن أبي عمرو">
-                                <p class="numIcon">19</p>
+                                    id="formRadio19" value="الدوري عن أبي عمرو">
+                                {{#if unlock.s19}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">19</p>{{/if}}
                             </label>
                         </div>
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s20}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="السوسي عن أبي عمرو">
-                                <p class="numIcon">19</p>
+                                    id="formRadio20" value="السوسي عن أبي عمرو">
+                                {{#if unlock.s20}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">20</p>{{/if}}
                             </label>
                         </div>
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s21}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="هشام عن ابن عامر">
-                                <p class="numIcon">20</p>
+                                    id="formRadio21" value="هشام عن ابن عامر">
+                                {{#if unlock.s21}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">21</p>{{/if}}
                             </label>
                         </div>
 
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s22}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="ابن ذكوان عن ابن عامر">
-                                <p class="numIcon">21</p>
+                                    id="formRadio22" value="ابن ذكوان عن ابن عامر">
+                                {{#if unlock.s22}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">22</p>{{/if}}
                             </label>
                         </div>
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s23}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="شعبة عن عاصم">
-                                <p class="numIcon">22</p>
+                                    id="formRadio23" value="شعبة عن عاصم">
+                                {{#if unlock.s23}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">23</p>{{/if}}
                             </label>
                         </div>
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s24}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="خلف عن حمزة">
-                                <p class="numIcon">23</p>
+                                    id="formRadio24" value="خلف عن حمزة">
+                                {{#if unlock.s24}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">24</p>{{/if}}
                             </label>
                         </div>
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s25}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="خلاد عن حمزة">
-                                <p class="numIcon">24</p>
+                                    id="formRadio25" value="خلاد عن حمزة">
+                                {{#if unlock.s25}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">25</p>{{/if}}
                             </label>
                         </div>
                               <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s26}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="ابو الحارث عن الكسائي">
-                                <p class="numIcon">25</p>
+                                    id="formRadio26" value="ابو الحارث عن الكسائي">
+                                {{#if unlock.s26}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">26</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s27}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="الدوري عن الكسائي">
-                                <p class="numIcon">26</p>
+                                    id="formRadio27" value="الدوري عن الكسائي">
+                                {{#if unlock.s27}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">27</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s28}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="السوسي عن أبي عمرو">
-                                <p class="numIcon">27</p>
+                                    id="formRadio28" value="السوسي عن أبي عمرو">
+                                {{#if unlock.s28}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">28</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s29}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="شعبة عن عاصم">
-                                <p class="numIcon">29</p>
+                                    id="formRadio29" value="شعبة عن عاصم">
+                                {{#if unlock.s29}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">29</p>{{/if}}
                             </label>
                         </div>
                             <div class="numIco">
                             
                             <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s30}}class="form-check-input d-none" disabled{{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="خلاد عن حمزة">
-                                <p class="numIcon">30</p>
+                                    id="formRadio30" value="خلاد عن حمزة">
+                                {{#if unlock.s30}}<p class="numIcon nump">selected</p>
+                                {{else}}<p class="numIcon">30</p>{{/if}}
                             </label>
                         </div>
 

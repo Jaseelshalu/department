@@ -48,6 +48,16 @@ a {
   border: 2px solid #7e1441 ;
 
 }
+.nump {
+  
+  font-size: 1rem;
+}
+.nump:hover{
+  background: #7e1441;
+  color: #fff;
+ 
+
+}
 .form-check-input:checked+p{
   width: 100px;
   height: 100px;
@@ -140,4 +150,9 @@ margin-bottom: 2rem;
 }
 .index .subBox p{
   font-size: 1rem;
+}
+.index  a{
+  background: #7e1441;
+  color: #fff;
+  margin-top: 1rem;
 }
