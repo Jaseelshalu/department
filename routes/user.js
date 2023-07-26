@@ -17,7 +17,7 @@ router.get('/', async function (req, res, next) {
   let subject = await userHelpers.findSubject()
   if (subject) res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject });
   else res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio });
-  
+
 });
 
 router.get('/login', (req, res) => {
@@ -48,28 +48,28 @@ router.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/signup', (req, res) => {
-  if (req.session.user) {
-    res.redirect('/')
-  }
-  else {
-    res.render('user/signup', { loginErr: req.session.loginErr, loginPage: true })
-    req.session.loginErr = false
-  }
-})
+// router.get('/signup', (req, res) => {
+//   if (req.session.user) {
+//     res.redirect('/')
+//   }
+//   else {
+//     res.render('user/signup', { loginErr: req.session.loginErr, loginPage: true })
+//     req.session.loginErr = false
+//   }
+// })
 
-router.post('/signup', (req, res) => {
-  userHelpers.doSignup(req.body).then((response) => {
-    if (response.status) {
-      req.session.user = response.user
-      req.session.user.loggedIn = true
-      res.redirect('/')
-    } else {
-      req.session.loginErr = "this email has already taken"
-      res.redirect('/signup')
-    }
-  })
-})
+// router.post('/signup', (req, res) => {
+//   userHelpers.doSignup(req.body).then((response) => {
+//     if (response.status) {
+//       req.session.user = response.user
+//       req.session.user.loggedIn = true
+//       res.redirect('/')
+//     } else {
+//       req.session.loginErr = "this email has already taken"
+//       res.redirect('/signup')
+//     }
+//   })
+// })
 
 router.get('/form', verifyLogin, async (req, res) => {
   let data = await userHelpers.unlockedItems()

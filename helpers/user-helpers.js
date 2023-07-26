@@ -82,7 +82,6 @@ module.exports = {
     findSubject: () => {
         return new Promise(async (resolve, reject) => {
             db.get().collection(collection.SUBJECT_COLLECTION).findOne({ Program: fg },{ Name: 0, Program: 1 }).then((sub) => {
-                console.log(sub);
                 resolve(sub)
             })
         })

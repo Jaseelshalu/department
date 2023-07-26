@@ -1,0 +1,65 @@
+/* Custom Styles for the entire site */
+body {
+    background-color: #f2f2f2;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+/* User Header */
+.navbar {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #007bff;
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+
+/* Login Page */
+.vh-100 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-outline {
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    color: #000000;
+}
+
+/* Form Page */
+.imageSize {
+    width: 100px;
+}
+
+.form-check-label,
+img {
+    width: 100px;
+}
+
+.form-check-input:checked+.form-check-label {
+    filter: grayscale(100%);
+}
+
+.form-check-input:checked+.form-check-label {
+    background: lightgray;
+}
+
+/* Footer */
+.footer {
+    padding: 1rem;
+    background-color: #007bff;
+    color: #ffffff;
+}
