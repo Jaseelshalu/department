@@ -120,9 +120,9 @@ router.get('/form', verifyLogin, async (req, res) => {
 router.post('/form', (req, res) => {
   userHelpers.formTransfer(req.body).then(async (response) => {
     if (response.result) {
-        // userHelpers.subTransfer().then(()=> {
-          res.redirect('/');
-        // })
+      userHelpers.addPending(req.body.Name).then(() => {
+        res.redirect('/');
+      })
     } else if (response.exist) {
       req.session.loginErr = response.exist
       res.redirect('/')

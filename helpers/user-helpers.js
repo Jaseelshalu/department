@@ -86,5 +86,12 @@ module.exports = {
                 resolve(sub)
             })
         })
+    },
+    addPending: (name) => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection('pending').deleteOne({ Name: name }).then(() => {
+                resolve()
+            })
+        })
     }
 }
