@@ -119,3 +119,25 @@ a {
   justify-content: center;
   align-items: center;
 }
+.form .formBox .button{
+  background: #fff;
+  color: #7e1441;
+  border: 2px solid #7e1441 ;
+margin-bottom: 2rem;
+}
+.index{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+.index .subBox{
+   background-color: #7e1441;
+   padding: 25px;
+   color: #fff;
+   border-radius: 10px;
+}
+.index .subBox p{
+  font-size: 1rem;
+}
