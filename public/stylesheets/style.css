@@ -84,6 +84,9 @@ a {
   margin-top: 0.8rem;
 
 } 
+.login a{
+  color: #fff;
+}
 .login p span{
   text-decoration: underline;
 }
