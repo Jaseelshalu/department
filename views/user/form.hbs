@@ -276,7 +276,7 @@
                 <input type="text" name="Name" value="{{user.Name}}" hidden>
                 <input type="submit" value="Submit">
                 {{#if loginErr}}
-                {{loginErr}}
+                <p id="hideMe">{{loginErr}}</p>
                 {{/if}}
             </div>
         </form>
@@ -335,6 +335,11 @@
                 }
 
                 return true; // Allow form submission
+            }
+
+            function hideParagraph() {
+                var paragraph = document.getElementById("hideMe");
+                paragraph.style.display = "none";
             }
 
         </script>

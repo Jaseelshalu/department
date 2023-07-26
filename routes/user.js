@@ -13,8 +13,11 @@ const verifyLogin = (req, res, next) => {
 }
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr });
+router.get('/', async function (req, res, next) {
+  let subject = await userHelpers.findSubject()
+  if (subject) res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject });
+  else res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio });
+  
 });
 
 router.get('/login', (req, res) => {
@@ -127,8 +130,9 @@ router.post('/form', (req, res) => {
           Name: req.body.Name,
           Program: sub
         }
-        userHelpers.subTransfer()
-      res.render('user/subject', { user: req.session.user, title: req.body.formRadio, sub });
+        userHelpers.subTransfer(obj).then(()=> {
+          res.redirect('/');
+        })
     } else if (response.exist) {
       req.session.loginErr = response.exist
       res.redirect('/')

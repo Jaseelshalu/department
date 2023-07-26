@@ -6,11 +6,13 @@
     <h3>form</h3>
 </a>
 
-<a href="/subject">
-    <h3>Your subject</h3>
-</a>
-
+{{#if loginErr}}
 <p id="hideMe">{{loginErr}}</p>
+{{/if}}
+
+{{#if subject}}
+<h2>Your subject is: {{subject.Program}}</h2>
+{{/if}}
 
 <script>
     function hideParagraph() {
