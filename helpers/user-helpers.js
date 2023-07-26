@@ -40,7 +40,7 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let response = {}
             let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ Name: data.Name })
-            let sub = await db.get().collection(collection.FORM_COLLECTION).findOne({ Program: data.Program })
+            let sub = await db.get().collection(collection.FORM_COLLECTION).findOne({ RadioName: data.RadioName })
             if (exist) {
                 response.exist = "You are already submitted"
                 resolve(response)
@@ -59,12 +59,15 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let rrrr = {}
             let documents = await db.get().collection(collection.FORM_COLLECTION).find({ RadioName: { $exists: true } }).toArray()
-            if (documents) {
-                for (i = 1; i <= 30; i++) {
-                    rrrr['sum' + i] = documents[i - 1].RadioName
+            if (documents && documents.length > 0) {
+                const numIterations = Math.min(30, documents.length);
+                for (let i = 1; i <= numIterations; i++) {
+                    if (documents[i - 1].RadioName) {
+                        rrrr['sum' + i] = documents[i - 1].RadioName;
+                    }
                 }
                 console.log(rrrr);
-                resolve(rrrr)
+                resolve(rrrr);
             } else {
                 resolve()
             }
