@@ -59,13 +59,16 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let rrrr = {}
             let documents = await db.get().collection(collection.FORM_COLLECTION).find({ RadioName: { $exists: true } }).toArray()
-            console.log(documents[0].RadioName);
-            rrrr.length = documents.length
-            for (i= 1; i <= documents.length; i++){
-                rrrr['sum' + i] = documents[i - 1].RadioName
+            if (documents) {
+                rrrr.length = documents.length
+                for (i = 1; i <= documents.length; i++) {
+                    rrrr['sum' + i] = documents[i - 1].RadioName
+                }
+                console.log(rrrr);
+                resolve(rrrr)
+            } else {
+                resolve()
             }
-            console.log(rrrr);
-            resolve(rrrr)
         })
     },
     subTransfer: (data) => {
@@ -77,7 +80,7 @@ module.exports = {
     },
     findSubject: (name) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name },{ Name: 0, Program: 1 }).then((sub) => {
+            db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name }, { Name: 0, Program: 1 }).then((sub) => {
                 resolve(sub)
             })
         })

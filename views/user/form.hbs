@@ -1,278 +1,280 @@
-<section>
-    <div class="container">
+<section class="mainForm">
+    <div class="">
         <form action="/form" method="post" onsubmit="return validateForm()">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="">Select One: </label><br>
-                        <div class="form-check form-check-inline imageSize">
+            <div class="">
+                <div class="form">
+                    <label for="">Select One: </label><br>
+
+                    <div class="formBox">
+                        <div class="numIco">
+                            
                             <label>
                                 <input {{#if unlock.s1}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio1" value="قالون عن نافع">
-                                <img src={{#if unlock.s1}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    <p class="numIcon" >1</p>
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            2
                             <label>
                                 <input {{#if unlock.s2}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio2" value="ورش عن نافع">
-                                <img src={{#if unlock.s2}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            3
                             <label>
                                 <input {{#if unlock.s3}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio3" value="البزي عن ابن كثير">
-                                <img src={{#if unlock.s3}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            4
                             <label>
                                 <input {{#if unlock.s4}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio4" value="قنبل عن ابن كثير ">
-                                <img src={{#if unlock.s4}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            5
                             <label>
                                 <input {{#if unlock.s5}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio5" value="الدوري عن أبي عمرو">
-                                <img src={{#if unlock.s5}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            6
+
                             <label>
                                 <input {{#if unlock.s6}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio6" value="السوسي عن أبي عمرو">
-                                <img src={{#if unlock.s6}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            7
                             <label>
                                 <input {{#if unlock.s7}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio7" value="هشام عن ابن عامر">
-                                <img src={{#if unlock.s7}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            8
                             <label>
                                 <input {{#if unlock.s8}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio8" value="ابن ذكوان عن ابن عامر">
-                                <img src={{#if unlock.s8}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
                                 <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio9" value="شعبة عن عاصم">
-                                <img src={{#if unlock.s9}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            10
                             <label>
                                 <input {{#if unlock.s10}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
                                     id="formRadio10" value="خلف عن حمزة">
-                                <img src={{#if unlock.s10}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s11}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio11" value="خلاد عن حمزة">
-                                <img src={{#if unlock.s11}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s12}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio12" value="ابو الحارث عن الكسائي">
-                                <img src={{#if unlock.s12}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s13}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio13" value="الدوري عن الكسائي">
-                                <img src={{#if unlock.s13}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s14}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio14" value="قالون عن نافع">
-                                <img src={{#if unlock.s14}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s15}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio15" value="ورش عن نافع">
-                                <img src={{#if unlock.s15}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s16}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio16" value="البزي عن ابن كثير">
-                                <img src={{#if unlock.s16}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s17}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio17" value="قنبل عن ابن كثير">
-                                <img src={{#if unlock.s17}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s18}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio18" value="الدوري عن أبي عمرو">
-                                <img src={{#if unlock.s18}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s19}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio19" value="السوسي عن أبي عمرو">
-                                <img src={{#if unlock.s19}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s20}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio20" value="هشام عن ابن عامر">
-                                <img src={{#if unlock.s20}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s21}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio21" value="ابن ذكوان عن ابن عامر">
-                                <img src={{#if unlock.s21}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s22}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio22" value="شعبة عن عاصم">
-                                <img src={{#if unlock.s22}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s23}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio23" value="خلف عن حمزة">
-                                <img src={{#if unlock.s23}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s24}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio24" value="خلاد عن حمزة">
-                                <img src={{#if unlock.s24}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s25}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio25" value="ابو الحارث عن الكسائي">
-                                <img src={{#if unlock.s25}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s26}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio26" value="الدوري عن الكسائي">
-                                <img src={{#if unlock.s26}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s27}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio27" value="البزي عن ابن كثير">
-                                <img src={{#if unlock.s27}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s28}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio28" value="السوسي عن أبي عمرو">
-                                <img src={{#if unlock.s28}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s29}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio29" value="ابن ذكوان عن ابن عامر">
-                                <img src={{#if unlock.s29}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div>
-                        <div class="form-check form-check-inline imageSize">
+                        <div class="numIcon">
+                            9
                             <label>
-                                <input {{#if unlock.s30}}class="form-check-input d-none" {{else}}
+                                <input {{#if unlock.s9}}class="form-check-input d-none" {{else}}
                                     class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio30" value="خلاد عن حمزة">
-                                <img src={{#if unlock.s30}}"/images/unlock.png" class="form-check-label img"
-                                    {{else}}"/images/lock.png" class="form-check-label imageRadio" {{/if}}>
+                                    id="formRadio9" value="شعبة عن عاصم">
+
                             </label>
                         </div><br>
                         <input type="text" name="Name" value="{{user.Name}}" hidden>
@@ -306,6 +308,7 @@
                         <input type="radio" name="RadioName" value="formRadio28" id="sherikkum28" hidden>
                         <input type="radio" name="RadioName" value="formRadio29" id="sherikkum29" hidden>
                         <input type="radio" name="RadioName" value="formRadio30" id="sherikkum30" hidden>
+
                         <input type="submit" class="btn btn-primary btn-lg" value="Submit">
                         {{#if loginErr}}
                         <p id="hideMe">{{loginErr}}</p>
@@ -314,21 +317,6 @@
                 </div>
             </div>
         </form>
-        <style>
-            .imageRadio:hover {
-                background: lightgray;
-                content: url("/images/unlocked.png");
-            }
-
-            .form-check-label {
-                width: 70px;
-            }
-
-            .form-check-input:checked+.imageRadio {
-                filter: grayscale(100%);
-                background: rgb(77, 122, 176);
-            }
-        </style>
 
         <script>
 

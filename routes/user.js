@@ -14,10 +14,14 @@ const verifyLogin = (req, res, next) => {
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  let name = req.session.name
-  let subject = await userHelpers.findSubject(name)
-  if (subject) res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject });
-  else res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio });
+  if (req.session.user){
+    let name = req.session.name
+    let subject = await userHelpers.findSubject(name)
+    if (subject) res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject });
+    else res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio });
+  } else {
+    res.redirect('/login')
+  }
 
 });
 
@@ -37,7 +41,7 @@ router.post('/login', (req, res) => {
       req.session.user = response.user
       req.session.name =response.user.Name
       req.session.user.loggedIn = true
-      res.redirect('/')
+      res.redirect('/form')
     } else {
       req.session.loginErr = "Invalid email or password"
       res.redirect('/login')
