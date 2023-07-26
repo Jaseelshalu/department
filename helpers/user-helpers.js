@@ -2,8 +2,6 @@ var db = require('../config/connection')
 var collection = require('../config/collection')
 const { ObjectId } = require('mongodb')
 
-let fg = null
-
 module.exports = {
     doSignup: (userData) => {
         let response = {}
@@ -74,14 +72,13 @@ module.exports = {
     subTransfer: (data) => {
         return new Promise(async (resolve, reject) => {
             db.get().collection(collection.SUBJECT_COLLECTION).insertOne(data).then(() => {
-                fg = data.Program
                 resolve()
             })
         })
     },
-    findSubject: () => {
+    findSubject: (name) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.SUBJECT_COLLECTION).findOne({ Program: fg },{ Name: 0, Program: 1 }).then((sub) => {
+            db.get().collection(collection.SUBJECT_COLLECTION).findOne({ Name: name },{ Name: 0, Program: 1 }).then((sub) => {
                 resolve(sub)
             })
         })

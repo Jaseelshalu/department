@@ -14,7 +14,9 @@ const verifyLogin = (req, res, next) => {
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  let subject = await userHelpers.findSubject()
+  let name = req.session.name
+  console.log('dff'+name);
+  let subject = await userHelpers.findSubject(name)
   if (subject) res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject });
   else res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio });
 
@@ -34,6 +36,7 @@ router.post('/login', (req, res) => {
   userHelpers.doLogin(req.body).then((response) => {
     if (response.status) {
       req.session.user = response.user
+      req.session.name =response.user.Name
       req.session.user.loggedIn = true
       res.redirect('/')
     } else {

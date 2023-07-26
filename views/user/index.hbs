@@ -1,18 +1,22 @@
-<a href="/login">
-    <h1>login</h1>
+<!-- index.hbs -->
+<a href="/login" class="btn btn-primary btn-lg">
+    <h3>Login</h3>
 </a>
 
-<a href="/form">
-    <h3>form</h3>
+<a href="/form" class="btn btn-info btn-lg">
+    <h3>Form</h3>
 </a>
 
 {{#if loginErr}}
-<p id="hideMe">{{loginErr}}</p>
+<div class="alert alert-danger mt-3">
+    {{loginErr}}
+</div>
 {{/if}}
 
 {{#if subject}}
 <h2>Your subject is: {{subject.Program}}</h2>
 {{/if}}
+
 
 <script>
     function hideParagraph() {
