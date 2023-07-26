@@ -74,6 +74,19 @@ a {
   align-items: center;
   justify-content: center;
 }
+.login p{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  line-height: 0.5;
+  max-width: 300px;
+  margin-top: 0.8rem;
+
+} 
+.login p span{
+  text-decoration: underline;
+}
  .imgForm{
   width: 100%;
   
