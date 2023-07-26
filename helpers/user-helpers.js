@@ -60,8 +60,7 @@ module.exports = {
             let rrrr = {}
             let documents = await db.get().collection(collection.FORM_COLLECTION).find({ RadioName: { $exists: true } }).toArray()
             if (documents) {
-                rrrr.length = documents.length
-                for (i = 1; i <= documents.length; i++) {
+                for (i = 1; i <= 30; i++) {
                     rrrr['sum' + i] = documents[i - 1].RadioName
                 }
                 console.log(rrrr);

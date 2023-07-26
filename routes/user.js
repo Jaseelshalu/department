@@ -81,7 +81,7 @@ router.get('/form', verifyLogin, async (req, res) => {
   let data = await userHelpers.unlockedItems()
   console.log(data);
   let unlock = {}
-  for (i = 1; i <= data.length; i++) {
+  for (i = 1; i <= 30; i++) {
     if (data['sum' + i] == "formRadio1") unlock.s1 = 'true'
     else if (data['sum' + i] == "formRadio2") unlock.s2 = 'true'
     else if (data['sum' + i] == "formRadio3") unlock.s3 = 'true'
@@ -113,6 +113,7 @@ router.get('/form', verifyLogin, async (req, res) => {
     else if (data['sum' + i] == "formRadio29") unlock.s29 = 'true'
     else if (data['sum' + i] == "formRadio30") unlock.s30 = 'true'
   }
+  console.log(unlock.s23);
   res.render('user/form', { user: req.session.user, loginErr: req.session.loginErr, unlock })
 })
 
