@@ -57,16 +57,15 @@ module.exports = {
     },
     unlockedItems: () => {
         return new Promise(async (resolve, reject) => {
-            const documents = await db.get().collection(collection.FORM_COLLECTION).find({ Program: { $exists: true } }).toArray();
-            let count = documents.length
-            let pr = {}
-            for (i = 1; i <= count; i++) {
-                if (count >= i) {
-                    pr['sum' + i] = documents[i - 1].Program;
-                }
+            let rrrr = {}
+            let documents = await db.get().collection(collection.FORM_COLLECTION).find({ RadioName: { $exists: true } }).toArray()
+            console.log(documents[0].RadioName);
+            rrrr.length = documents.length
+            for (i= 1; i <= documents.length; i++){
+                rrrr['sum' + i] = documents[i - 1].RadioName
             }
-            pr.count = count
-            resolve(pr)
+            console.log(rrrr);
+            resolve(rrrr)
         })
     },
     subTransfer: (data) => {
@@ -78,7 +77,7 @@ module.exports = {
     },
     findSubject: (name) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.SUBJECT_COLLECTION).findOne({ Name: name },{ Name: 0, Program: 1 }).then((sub) => {
+            db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name },{ Name: 0, Program: 1 }).then((sub) => {
                 resolve(sub)
             })
         })
