@@ -17,7 +17,7 @@ function keepAlive() {
 }
 
 // Set the interval to run the keepAlive function every 4 minutes (adjust the interval as needed).
-const interval = setInterval(keepAlive, 4 * 1000);
+const interval = setInterval(keepAlive, 4 * 60 * 1000);
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
@@ -29,6 +29,13 @@ router.get('/', async function (req, res, next) {
   } else {
     res.redirect('/login')
   }
+
+  function keepAlive() {
+    console.log("Node.js is active!"); // Replace this with any action you want to perform to keep the process active.
+  }
+
+  // Set the interval to run the keepAlive function every 4 minutes (adjust the interval as needed).
+  const interval = setInterval(keepAlive, 4 * 60 * 1000);
 
 });
 
