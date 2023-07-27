@@ -12,9 +12,16 @@ const verifyLogin = (req, res, next) => {
   }
 }
 
+function keepAlive() {
+  console.log("Node.js is active!"); // Replace this with any action you want to perform to keep the process active.
+}
+
+// Set the interval to run the keepAlive function every 4 minutes (adjust the interval as needed).
+const interval = setInterval(keepAlive, 4 * 60 * 1000);
+
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  if (req.session.user){
+  if (req.session.user) {
     let name = req.session.name
     let subject = await userHelpers.findSubject(name)
     if (subject) res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject });
@@ -39,7 +46,7 @@ router.post('/login', (req, res) => {
   userHelpers.doLogin(req.body).then((response) => {
     if (response.status) {
       req.session.user = response.user
-      req.session.name =response.user.Name
+      req.session.name = response.user.Name
       req.session.user.loggedIn = true
       res.redirect('/form')
     } else {
