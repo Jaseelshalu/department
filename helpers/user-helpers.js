@@ -141,8 +141,16 @@ module.exports = {
         })
     },
     getUserProfile: (name) => {
-        db.get().collection(collection.USER_COLLECTION).findOne({ Name: name }).then((data) => {
-            resolve(data)
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.USER_COLLECTION).findOne({ Name: name }).then((data) => {
+                resolve(data)
+            })
+        })
+    },
+    candidates: () => {
+        return new Promise(async (resolve, reject) => {
+            let candidates = await db.get().collection(collection.TURN_COLLECTION).find().toArray()
+            resolve(candidates)
         })
     }
 }

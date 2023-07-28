@@ -4,5 +4,5 @@ module.exports = {
     SUBJECT_COLLECTION: 'subject',
     PENDING_COLLECTION: 'pending',
     TURN_COLLECTION: 'turn',
-    TURN_PENDING_COLLECTION: 'turn-pending'
+    TURN_PENDING_COLLECTION: 'turnpending'
 }

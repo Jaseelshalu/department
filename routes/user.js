@@ -199,8 +199,10 @@ router.post('/toss', (req, res) => {
 
 router.get('/candidates', verifyLogin, async (req, res) => {
   let did = await userHelpers.checkingTurn(req.session.name)
-  if (did) res.render('user/candidates', { user: req.session.user })
-  else res.redirect('/toss')
+  if (did) {
+    let candidates = await userHelpers.candidates()
+    res.render('user/candidates', { user: req.session.user, candidates })
+  } else res.redirect('/toss')
 })
 
 router.post('/form', (req, res) => {
@@ -220,8 +222,8 @@ router.post('/form', (req, res) => {
 })
 
 router.get('/profile', verifyLogin, async (req, res) => {
-  userHelpers.getUserProfile(req.session.name)
-  res.render('user/profile', { user: req.session.user, profile: true })
+  let userProfile = await userHelpers.getUserProfile(req.session.name)
+  res.render('user/profile', { user: req.session.user, profile: true, userProfile })
 })
 
 module.exports = router;
