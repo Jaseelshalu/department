@@ -220,6 +220,7 @@ router.post('/form', (req, res) => {
 })
 
 router.get('/profile', verifyLogin, async (req, res) => {
+  userHelpers.getUserProfile(req.session.name)
   res.render('user/profile', { user: req.session.user, profile: true })
 })
 

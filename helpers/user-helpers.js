@@ -71,7 +71,7 @@ module.exports = {
                 }
                 resolve(rrrr);
             } else {
-                resolve()
+                resolve(rrrr)
             }
         })
     },
@@ -136,8 +136,11 @@ module.exports = {
                 }
                 resolve(rrrr);
             } else {
-                resolve()
+                resolve(rrrr)
             }
         })
+    },
+    getUserProfile: (name) => {
+        
     }
 }
