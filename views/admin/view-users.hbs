@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row mt-4">
-            <a href="/admin/add-user" class="btn btn-success ml-auto mb-3">Add user</a>
+            <a href="/dhdcquranadmindashboard/add-user" class="btn btn-success ml-auto mb-3">Add user</a>
         </div>
         <table class="table mt-5" id="usersTable">
             <thead>
@@ -24,8 +24,8 @@
                     <td>{{this.Institution}}</td>
                     <td><img src="/images/user-images/{{this._id}}.jpg" alt=""></td>
                     <td>
-                        <a href="/admin/edit-user?id={{this._id}}" class="btn btn-primary">Edit</a>
-                        <a href="/admin/delete-user/{{this._id}}" class="btn btn-danger"
+                        <a href="/dhdcquranadmindashboard/edit-user?id={{this._id}}" class="btn btn-primary">Edit</a>
+                        <a href="/dhdcquranadmindashboard/delete-user/{{this._id}}" class="btn btn-danger"
                             {{#if ../adminData}}onclick="return confirm('Are you want to remove the user {{this.Name}} ?')"{{else}}{{/if}}>Delete</a>
                     </td>
                 </tr>

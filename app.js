@@ -36,7 +36,7 @@ db.connect((err) => {
 }) //new
 
 app.use('/', userRouter);
-app.use('/admin', adminRouter);
+app.use('/dhdcquranadmindashboard', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

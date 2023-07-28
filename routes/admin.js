@@ -9,7 +9,7 @@ const verifyLogin = (req, res, next) => {
     if (req.session.admin) {
         next()
     } else {
-        res.redirect('/admin/login')
+        res.redirect('/dhdcquranadmindashboard/login')
     }
 }
 
@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/login', (req, res) => {
     if (req.session.admin) {
-        res.redirect('/admin')
+        res.redirect('/dhdcquranadmindashboard')
     }
     else {
         res.render('admin/login', { admin: true, loginErr: req.session.loginErr, loginPage: true })
@@ -39,17 +39,17 @@ router.post('/login', (req, res) => {
         if (response.status) {
             req.session.admin = response.admin
             req.session.admin.loggedIn = true
-            res.redirect('/admin')
+            res.redirect('/dhdcquranadmindashboard')
         } else {
             req.session.loginErr = "Invalid email or password"
-            res.redirect('/admin/login')
+            res.redirect('/dhdcquranadmindashboard/login')
         }
     })
 })
 
 router.get('/logout', (req, res) => {
     req.session.admin = null
-    res.redirect('/admin')
+    res.redirect('/dhdcquranadmindashboard')
 })
 
 router.get('/signup', (req, res) => {
@@ -61,10 +61,10 @@ router.post('/signup', (req, res) => {
         if (response.status) {
             req.session.admin = response.admin
             req.session.admin.loggedIn = true
-            res.redirect('/admin')
+            res.redirect('/dhdcquranadmindashboard')
         } else {
             req.session.loginErr = response.loginErr
-            res.redirect('/admin/signup')
+            res.redirect('/dhdcquranadmindashboard/signup')
         }
     })
 })
@@ -77,7 +77,7 @@ router.get('/add-user', verifyLogin, (req, res) => {
     let image = req.files.Image
     productHelpers.adduser(req.body).then((id) => {
       image.mv(`./public/images/user-images/${id}.jpg`, (err) => {
-        if (!err) res.redirect('/admin')
+        if (!err) res.redirect('/dhdcquranadmindashboard')
         else console.log(err);
       })
     })
@@ -94,7 +94,7 @@ router.get('/add-user', verifyLogin, (req, res) => {
     let proId = req.body.Id
     let newuser = req.body
     productHelpers.edituser(proId, newuser).then(() => {
-      res.redirect('/admin')
+      res.redirect('/dhdcquranadmindashboard')
       if (req.files) {
         let image = req.files.Image
         image.mv(`./public/images/user-images/${proId}.jpg`)
@@ -105,7 +105,7 @@ router.get('/add-user', verifyLogin, (req, res) => {
   router.get('/delete-user/:id', verifyLogin, (req, res) => {
     let proId = req.params.id
     productHelpers.deleteuser(proId).then(() => {
-      res.redirect('/admin')
+      res.redirect('/dhdcquranadmindashboard')
       let imagePath = `./public/images/user-images/${proId}.jpg`
       fs.unlink(imagePath, (err) => {
         if (err) console.log(err)
