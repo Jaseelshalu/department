@@ -4,8 +4,14 @@
             <div class="">
                 <div class="form">
                     <label for="">Select One: </label><br>
+                        {{#if loginErr}}
+                        <div class="alert alert-danger" id="hideMe">
+                            {{loginErr}}
+                        </div>
+                        {{/if}}
 
                     <div class="formBox">
+                        
                         <div class="numIco">
 
                             <label>
@@ -314,11 +320,6 @@
                         <input type="text" name="Name" value="{{user.Name}}" hidden>
 
                         <input type="submit" class="btn button btn-lg" value="Submit">
-                        {{#if loginErr}}
-                        <div class="alert alert-danger" id="hideMe">
-                            {{loginErr}}
-                        </div>
-                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -355,7 +356,7 @@
             }
 
             document.addEventListener("DOMContentLoaded", function () {
-                setTimeout(hideParagraph, 5000);
+                setTimeout(hideParagraph, 3000);
             });
         </script>
     </div>

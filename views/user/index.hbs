@@ -17,7 +17,12 @@
 <h2>Your subject is: {{subject.Program}}</h2>
 {{/if}}
 </div>
-<a href="/logout" class="btn logout btn-lg">Logout</a>
+
+{{#if formDid}}
+<a href="/candidates" class="btn logout btn-lg">Your turn</a>
+{{else}}
+<a href="/toss" class="btn logout btn-lg">Toss your turn</a>
+{{/if}}
 
 </div>
 

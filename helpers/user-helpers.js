@@ -14,6 +14,8 @@ module.exports = {
                 db.get().collection(collection.USER_COLLECTION).insertOne(userData).then(() => {
                     response.user = userData
                     response.status = true
+                    db.get().collection(collection.PENDING_COLLECTION).insertOne(userData)
+                    db.get().collection(collection.TURN_PENDING_COLLECTION).insertOne(userData)
                     resolve(response)
                 })
             }
@@ -50,6 +52,7 @@ module.exports = {
             } else {
                 db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
+                    db.get().collection(collection.PENDING_COLLECTION).deleteOne({ Name: data.Name })
                     resolve(response)
                 })
             }
@@ -66,7 +69,6 @@ module.exports = {
                         rrrr['sum' + i] = documents[i - 1].RadioName;
                     }
                 }
-                console.log(rrrr);
                 resolve(rrrr);
             } else {
                 resolve()
@@ -87,18 +89,24 @@ module.exports = {
             })
         })
     },
-    addPending: (name) => {
-        return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.PENDING_COLLECTION).deleteOne({ Name: name }).then(() => {
-                resolve()
-            })
-        })
-    },
     turnTransfer: (turnData) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.TURN_COLLECTION).insertOne(turnData).then(() => {
-                resolve()
-            })
+            let response = {}
+            let exist = await db.get().collection(collection.TURN_COLLECTION).findOne({ Name: turnData.Name })
+            let sub = await db.get().collection(collection.TURN_COLLECTION).findOne({ Turn: turnData.Turn })
+            if (exist) {
+                response.exist = "You are already submitted"
+                resolve(response)
+            } else if (sub) {
+                response.sub = "This Turn already taken"
+                resolve(response)
+            } else {
+                db.get().collection(collection.TURN_COLLECTION).insertOne(turnData).then((result) => {
+                    response.result = result
+                    db.get().collection(collection.TURN_PENDING_COLLECTION).deleteOne({ Name: turnData.Name })
+                    resolve(response)
+                })
+            }
         })
     },
     checkingTurn: (name) => {
@@ -106,6 +114,30 @@ module.exports = {
             let exist = await db.get().collection(collection.TURN_COLLECTION).findOne({ Name: name })
             if (exist) resolve({ staus: true })
             else resolve(false)
-            })
+        })
+    },
+    checkingForm: (name) => {
+        return new Promise(async (resolve, reject) => {
+            let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name })
+            if (exist) resolve({ staus: true })
+            else resolve(false)
+        })
+    },
+    unlockedTurns: () => {
+        return new Promise(async (resolve, reject) => {
+            let rrrr = {}
+            let documents = await db.get().collection(collection.TURN_COLLECTION).find({ Turn: { $exists: true } }).toArray()
+            if (documents && documents.length > 0) {
+                const numIterations = Math.min(30, documents.length);
+                for (let i = 1; i <= numIterations; i++) {
+                    if (documents[i - 1].Turn) {
+                        rrrr['sum' + i] = documents[i - 1].Turn;
+                    }
+                }
+                resolve(rrrr);
+            } else {
+                resolve()
+            }
+        })
     }
 }
