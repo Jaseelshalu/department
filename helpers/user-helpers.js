@@ -89,9 +89,23 @@ module.exports = {
     },
     addPending: (name) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection('pending').deleteOne({ Name: name }).then(() => {
+            db.get().collection(collection.PENDING_COLLECTION).deleteOne({ Name: name }).then(() => {
                 resolve()
             })
         })
+    },
+    turnTransfer: (turnData) => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.TURN_COLLECTION).insertOne(turnData).then(() => {
+                resolve()
+            })
+        })
+    },
+    checkingTurn: (name) => {
+        return new Promise(async (resolve, reject) => {
+            let exist = await db.get().collection(collection.TURN_COLLECTION).findOne({ Name: name })
+            if (exist) resolve({ staus: true })
+            else resolve(false)
+            })
     }
 }

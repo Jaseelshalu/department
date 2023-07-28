@@ -55,7 +55,7 @@ router.post('/login', (req, res) => {
       req.session.user = response.user
       req.session.name = response.user.Name
       req.session.user.loggedIn = true
-      res.redirect('/form')
+      res.redirect('/toss')
     } else {
       req.session.loginErr = "Invalid email or password"
       res.redirect('/login')
@@ -82,6 +82,7 @@ router.post('/signup', (req, res) => {
   userHelpers.doSignup(req.body).then((response) => {
     if (response.status) {
       req.session.user = response.user
+      req.session.name = response.user.Name
       req.session.user.loggedIn = true
       res.redirect('/')
     } else {
@@ -91,65 +92,82 @@ router.post('/signup', (req, res) => {
   })
 })
 
-router.get('/form', verifyLogin, async (req, res) => {
-  let data = await userHelpers.unlockedItems()
-  console.log(data);
-  let unlock = {}
-  for (i = 1; i <= 30; i++) {
-    if (data['sum' + i] == "formRadio1") unlock.s1 = 'true'
-    else if (data['sum' + i] == "formRadio2") unlock.s2 = 'true'
-    else if (data['sum' + i] == "formRadio3") unlock.s3 = 'true'
-    else if (data['sum' + i] == "formRadio4") unlock.s4 = 'true'
-    else if (data['sum' + i] == "formRadio5") unlock.s5 = 'true'
-    else if (data['sum' + i] == "formRadio6") unlock.s6 = 'true'
-    else if (data['sum' + i] == "formRadio7") unlock.s7 = 'true'
-    else if (data['sum' + i] == "formRadio8") unlock.s8 = 'true'
-    else if (data['sum' + i] == "formRadio9") unlock.s9 = 'true'
-    else if (data['sum' + i] == "formRadio10") unlock.s10 = 'true'
-    else if (data['sum' + i] == "formRadio11") unlock.s11 = 'true'
-    else if (data['sum' + i] == "formRadio12") unlock.s12 = 'true'
-    else if (data['sum' + i] == "formRadio13") unlock.s13 = 'true'
-    else if (data['sum' + i] == "formRadio14") unlock.s14 = 'true'
-    else if (data['sum' + i] == "formRadio15") unlock.s15 = 'true'
-    else if (data['sum' + i] == "formRadio16") unlock.s16 = 'true'
-    else if (data['sum' + i] == "formRadio17") unlock.s17 = 'true'
-    else if (data['sum' + i] == "formRadio18") unlock.s18 = 'true'
-    else if (data['sum' + i] == "formRadio19") unlock.s19 = 'true'
-    else if (data['sum' + i] == "formRadio20") unlock.s20 = 'true'
-    else if (data['sum' + i] == "formRadio21") unlock.s21 = 'true'
-    else if (data['sum' + i] == "formRadio22") unlock.s22 = 'true'
-    else if (data['sum' + i] == "formRadio23") unlock.s23 = 'true'
-    else if (data['sum' + i] == "formRadio24") unlock.s24 = 'true'
-    else if (data['sum' + i] == "formRadio25") unlock.s25 = 'true'
-    else if (data['sum' + i] == "formRadio26") unlock.s26 = 'true'
-    else if (data['sum' + i] == "formRadio27") unlock.s27 = 'true'
-    else if (data['sum' + i] == "formRadio28") unlock.s28 = 'true'
-    else if (data['sum' + i] == "formRadio29") unlock.s29 = 'true'
-    else if (data['sum' + i] == "formRadio30") unlock.s30 = 'true'
-  }
-  console.log(unlock.s23);
-  res.render('user/form', { user: req.session.user, loginErr: req.session.loginErr, unlock })
+// router.get('/form', verifyLogin, async (req, res) => {
+//   let already
+//   let data = await userHelpers.unlockedItems()
+//   console.log(data);
+//   let unlock = {}
+//   for (i = 1; i <= 30; i++) {
+//     if (data['sum' + i] == "formRadio1") unlock.s1 = 'true'
+//     else if (data['sum' + i] == "formRadio2") unlock.s2 = 'true'
+//     else if (data['sum' + i] == "formRadio3") unlock.s3 = 'true'
+//     else if (data['sum' + i] == "formRadio4") unlock.s4 = 'true'
+//     else if (data['sum' + i] == "formRadio5") unlock.s5 = 'true'
+//     else if (data['sum' + i] == "formRadio6") unlock.s6 = 'true'
+//     else if (data['sum' + i] == "formRadio7") unlock.s7 = 'true'
+//     else if (data['sum' + i] == "formRadio8") unlock.s8 = 'true'
+//     else if (data['sum' + i] == "formRadio9") unlock.s9 = 'true'
+//     else if (data['sum' + i] == "formRadio10") unlock.s10 = 'true'
+//     else if (data['sum' + i] == "formRadio11") unlock.s11 = 'true'
+//     else if (data['sum' + i] == "formRadio12") unlock.s12 = 'true'
+//     else if (data['sum' + i] == "formRadio13") unlock.s13 = 'true'
+//     else if (data['sum' + i] == "formRadio14") unlock.s14 = 'true'
+//     else if (data['sum' + i] == "formRadio15") unlock.s15 = 'true'
+//     else if (data['sum' + i] == "formRadio16") unlock.s16 = 'true'
+//     else if (data['sum' + i] == "formRadio17") unlock.s17 = 'true'
+//     else if (data['sum' + i] == "formRadio18") unlock.s18 = 'true'
+//     else if (data['sum' + i] == "formRadio19") unlock.s19 = 'true'
+//     else if (data['sum' + i] == "formRadio20") unlock.s20 = 'true'
+//     else if (data['sum' + i] == "formRadio21") unlock.s21 = 'true'
+//     else if (data['sum' + i] == "formRadio22") unlock.s22 = 'true'
+//     else if (data['sum' + i] == "formRadio23") unlock.s23 = 'true'
+//     else if (data['sum' + i] == "formRadio24") unlock.s24 = 'true'
+//     else if (data['sum' + i] == "formRadio25") unlock.s25 = 'true'
+//     else if (data['sum' + i] == "formRadio26") unlock.s26 = 'true'
+//     else if (data['sum' + i] == "formRadio27") unlock.s27 = 'true'
+//     else if (data['sum' + i] == "formRadio28") unlock.s28 = 'true'
+//     else if (data['sum' + i] == "formRadio29") unlock.s29 = 'true'
+//     else if (data['sum' + i] == "formRadio30") unlock.s30 = 'true'
+//   }
+//   console.log(unlock.s23);
+//   res.render('user/form', { user: req.session.user, loginErr: req.session.loginErr, unlock })
+// })
+
+router.get('/toss', verifyLogin, (req, res) => {
+  let did = userHelpers.checkingTurn(req.session.name)
+  if (did) res.redirect('/candidates')
+  else res.render('user/toss', {user: req.session.user} )
 })
 
-router.post('/form', (req, res) => {
-  userHelpers.formTransfer(req.body).then(async (response) => {
-    if (response.result) {
-      userHelpers.addPending(req.body.Name).then(() => {
-        res.redirect('/');
-      })
-    } else if (response.exist) {
-      req.session.loginErr = response.exist
-      res.redirect('/')
-      req.session.err = false
-    } else if (response.sub) {
-      req.session.loginErr = response.sub
-      res.redirect('/form')
-      req.session.loginErr = false
-    } else {
-      res.redirect('/')
-    }
+router.post('/toss', (req, res) => {
+  userHelpers.turnTransfer(req.body).then(() => {
+    res.redirect('/candidates')
   })
 })
+
+router.get('/candidates', verifyLogin, (req, res) => {
+  res.render('user/candidates', {user: req.session.user} )
+})
+
+// router.post('/form', (req, res) => {
+//   userHelpers.formTransfer(req.body).then(async (response) => {
+//     if (response.result) {
+//       userHelpers.addPending(req.body.Name).then(() => {
+//         res.redirect('/');
+//       })
+//     } else if (response.exist) {
+//       req.session.loginErr = response.exist
+//       res.redirect('/')
+//       req.session.err = false
+//     } else if (response.sub) {
+//       req.session.loginErr = response.sub
+//       res.redirect('/form')
+//       req.session.loginErr = false
+//     } else {
+//       res.redirect('/')
+//     }
+//   })
+// })
 
 router.get('/subject', (req, res) => {
   res.render('user/subject', { user: req.session.user, title: req.body.formRadio, sub });
