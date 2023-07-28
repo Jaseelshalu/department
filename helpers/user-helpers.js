@@ -141,6 +141,8 @@ module.exports = {
         })
     },
     getUserProfile: (name) => {
-        
+        db.get().collection(collection.USER_COLLECTION).findOne({ Name: name }).then((data) => {
+            resolve(data)
+        })
     }
 }
