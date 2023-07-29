@@ -74,12 +74,14 @@ router.get('/add-user', verifyLogin, (req, res) => {
   })
   
   router.post('/add-user', (req, res) => {
-    let image = req.files.Image
     productHelpers.adduser(req.body).then((id) => {
+      if (req.files) {
       image.mv(`./public/images/user-images/${id}.jpg`, (err) => {
         if (!err) res.redirect('/dhdcquranadmindashboard')
         else console.log(err);
       })
+    }
+    res.redirect('/dhdcquranadmindashboard')
     })
   })
   

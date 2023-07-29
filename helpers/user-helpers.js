@@ -12,10 +12,10 @@ module.exports = {
                 resolve(response)
             } else {
                 db.get().collection(collection.USER_COLLECTION).insertOne(userData).then(() => {
-                    response.user = userData
-                    response.status = true
                     db.get().collection(collection.PENDING_COLLECTION).insertOne(userData)
                     db.get().collection(collection.TURN_PENDING_COLLECTION).insertOne(userData)
+                    response.user = userData
+                    response.status = true
                     resolve(response)
                 })
             }
@@ -41,7 +41,7 @@ module.exports = {
     formTransfer: (data) => {
         return new Promise(async (resolve, reject) => {
             let response = {}
-            let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ Name: data.Name })
+            let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ userId: data._id })
             let sub = await db.get().collection(collection.FORM_COLLECTION).findOne({ RadioName: data.RadioName })
             if (exist) {
                 response.exist = "You are already submitted"
@@ -52,7 +52,7 @@ module.exports = {
             } else {
                 db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
-                    db.get().collection(collection.PENDING_COLLECTION).deleteOne({ Name: data.Name })
+                    db.get().collection(collection.PENDING_COLLECTION).deleteOne({ userId: data._id })
                     resolve(response)
                 })
             }
@@ -151,6 +151,13 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let candidates = await db.get().collection(collection.TURN_COLLECTION).find().toArray()
             resolve(candidates)
+        })
+    },
+    getUserId: () => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.USER_COLLECTION).findOne({ Name: name }).then((data) => {
+                resolve(data)
+            })
         })
     }
 }

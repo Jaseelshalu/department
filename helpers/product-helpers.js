@@ -79,10 +79,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             db.get().collection(collection.USER_COLLECTION).updateOne({ _id: new ObjectId(proId) }, {
                 $set: {
-                    Name: newuser.Name,
-                    Category: newuser.Category,
-                    Price: newuser.Price,
-                    Description: newuser.Description
+                    Name: newuser.Name
                 }
             }).then(() => {
                 resolve()
