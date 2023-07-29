@@ -92,16 +92,17 @@ module.exports = {
     turnTransfer: (turnData) => {
         return new Promise(async (resolve, reject) => {
             let response = {}
-            let exist = await db.get().collection(collection.TURN_COLLECTION).findOne({ Name: turnData.Name })
             let sub = await db.get().collection(collection.TURN_COLLECTION).findOne({ Turn: turnData.Turn })
-            if (exist) {
-                response.exist = "You are already submitted"
-                resolve(response)
-            } else if (sub) {
+            if (sub) {
                 response.sub = "This Turn already taken"
                 resolve(response)
             } else {
-                db.get().collection(collection.TURN_COLLECTION).insertOne(turnData).then((result) => {
+                db.get().collection(collection.TURN_COLLECTION).updateOne({ Name: turnData.Name },{
+                    $set: {
+                        Turn: turnData.Turn,
+                        userId: turnData.userId
+                    }
+                }).then((result) => {
                     response.result = result
                     db.get().collection(collection.TURN_PENDING_COLLECTION).deleteOne({ Name: turnData.Name })
                     resolve(response)
@@ -112,7 +113,8 @@ module.exports = {
     checkingTurn: (name) => {
         return new Promise(async (resolve, reject) => {
             let exist = await db.get().collection(collection.TURN_COLLECTION).findOne({ Name: name })
-            if (exist) resolve({ staus: true })
+            console.log(exist.Turn);
+            if (exist.Turn) resolve({ staus: true })
             else resolve(false)
         })
     },

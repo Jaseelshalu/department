@@ -60,7 +60,7 @@ router.post('/login', (req, res) => {
       req.session.name = response.user.Name
       req.session.user.loggedIn = true
       let didForm = await userHelpers.checkingForm(req.session.name)
-      if (didForm) res.redirect('/')
+      if (didForm) res.redirect('/toss')
       else res.redirect('/form')
     } else {
       req.session.loginErr = "Invalid email or password"
@@ -182,13 +182,10 @@ router.get('/toss', verifyLogin, async (req, res) => {
 })
 
 router.post('/toss', (req, res) => {
+  console.log(req.body);
   userHelpers.turnTransfer(req.body).then((response) => {
     if (response.result) {
-      res.redirect('/candidates')
-    } else if (response.exist) {
-      req.session.loginErr = response.exist
       res.redirect('/')
-      req.session.err = false
     } else if (response.sub) {
       req.session.loginErr = response.sub
       res.redirect('/toss')
