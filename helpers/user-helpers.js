@@ -100,7 +100,13 @@ module.exports = {
                 db.get().collection(collection.TURN_COLLECTION).updateOne({ Name: turnData.Name },{
                     $set: {
                         Turn: turnData.Turn,
-                        userId: turnData.userId
+                        userId: turnData.userId,
+                        Age: turnData.Age,
+                        Place: turnData.Place,
+                        District: turnData.District,
+                        Institution: turnData.Institution,
+                        Email: turnData.Email,
+                        Phone: turnData.Phone
                     }
                 }).then((result) => {
                     response.result = result
@@ -151,8 +157,9 @@ module.exports = {
     },
     candidates: () => {
         return new Promise(async (resolve, reject) => {
-            let candidates = await db.get().collection(collection.TURN_COLLECTION).find({ Turn: { $exists: true } }).sort({ Turn: 1 }).toArray()
-            resolve(candidates)
+            let candidates = await db.get().collection(collection.TURN_COLLECTION).find({ Turn: { $exists: true } }).toArray()
+            var sorted = await candidates.sort((a, b) => a.Turn - b.Turn);
+            resolve(sorted)
         })
     },
     getUserId: () => {
