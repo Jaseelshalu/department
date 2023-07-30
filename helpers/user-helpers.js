@@ -151,7 +151,7 @@ module.exports = {
     },
     candidates: () => {
         return new Promise(async (resolve, reject) => {
-            let candidates = await db.get().collection(collection.TURN_COLLECTION).find().toArray()
+            let candidates = await db.get().collection(collection.TURN_COLLECTION).find({ Turn: { $exists: true } }).sort({ Turn: 1 }).toArray()
             resolve(candidates)
         })
     },
