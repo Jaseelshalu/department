@@ -1,3 +1,29 @@
+<style>
+    .turn {
+        width: 60px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        justify-content: center;
+        color: #fff;
+        height: 60px;
+        background-color: #7e1441;
+        border-radius: 1rem;
+    }
+
+    .turn span {
+        display: block;
+        font-size: 0.8rem;
+        background-color: #fff;
+        border-radius: 0.3rem;
+        color: #7e1441;
+        padding: 3px 5px;
+    }
+</style>
+
 <div class="candidates">
     <div class="container">
         <h2>All Candidates:</h2>
@@ -6,7 +32,7 @@
             <div class="candidate">
                 <img src="/images/user-images/{{this.userId}}.jpg" alt="">
                 <div class="info">
-                    <p class="turn">{{this.Turn}}</p>
+                    <p class="turn">{{turn.Turn}} <br><span>Turn</span> </p>
                     <div class="line"></div>
                     <p class="name">{{this.Name}}</p>
                     <p class="sub">{{this.Program}}</p>
