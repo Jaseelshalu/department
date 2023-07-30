@@ -14,12 +14,15 @@
 <div class="subBox">
 <p>Al-Shathibi Qur'an Competition</p>
 {{#if subject}}
-<h2>Your subject is: {{subject.Program}}</h2>
+<h2>Your Subject is: {{subject.Program}}</h2>
+{{/if}}
+{{#if turn}}
+<h2>Your Turn is: {{turn.Turn}}</h2>
 {{/if}}
 </div>
 
 {{#if formDid}}
-<a href="/candidates" class="btn logout btn-lg">Your turn</a>
+<a href="/candidates" class="btn logout btn-lg">Candidates</a>
 {{else}}
 <a href="/toss" class="btn logout btn-lg">Toss your turn</a>
 {{/if}}

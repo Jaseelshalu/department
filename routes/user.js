@@ -26,8 +26,9 @@ router.get('/', async function (req, res, next) {
       let formDid = false
       let did = await userHelpers.checkingTurn(req.session.name)
       if (did) formDid = true
-      userHelpers.findSubject(req.session.name).then((subject) => {
-        res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid });
+      userHelpers.findSubject(req.session.name).then(async(subject) => {
+        let turn = await userHelpers.findTurn(req.session.name)
+        res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid, turn });
       })
     }
     else res.redirect('/form')

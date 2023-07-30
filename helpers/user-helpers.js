@@ -168,5 +168,12 @@ module.exports = {
                 resolve(data)
             })
         })
+    },
+    findTurn: (name) => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name }, { Name: 0, Turn: 1 }).then((turn) => {
+                resolve(turn)
+            })
+        })
     }
 }
