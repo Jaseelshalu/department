@@ -26,9 +26,11 @@ router.get('/', async function (req, res, next) {
       let formDid = false
       let did = await userHelpers.checkingTurn(req.session.name)
       if (did) formDid = true
-      userHelpers.findSubject(req.session.name).then(async(subject) => {
+      userHelpers.findSubject(req.session.name).then(async (subject) => {
         let turn = await userHelpers.findTurn(req.session.name)
-        res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid, turn });
+        let userProfile = await userHelpers.getUserProfile(req.session.name)
+        console.log(turn);
+        res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid, turn, profile: true, userProfile });
       })
     }
     else res.redirect('/form')
@@ -195,12 +197,19 @@ router.post('/toss', (req, res) => {
   })
 })
 
-router.get('/candidates', verifyLogin, async (req, res) => {
-  let did = await userHelpers.checkingTurn(req.session.name)
-  if (did) {
+router.get('/candidates', async (req, res) => {
+  if(req.session.name){
+    let did = await userHelpers.checkingTurn(req.session.name)
+    if (did) {
+      let candidates = await userHelpers.candidates()
+      res.render('user/candidates', { user: req.session.user, candidates })
+    } else res.redirect('/toss')
+  }else{
     let candidates = await userHelpers.candidates()
-    res.render('user/candidates', { user: req.session.user, candidates })
-  } else res.redirect('/toss')
+    res.render('user/candidates', { candidates })
+
+  }
+ 
 })
 
 router.post('/form', (req, res) => {
@@ -220,9 +229,9 @@ router.post('/form', (req, res) => {
   })
 })
 
-router.get('/profile', verifyLogin, async (req, res) => {
-  let userProfile = await userHelpers.getUserProfile(req.session.name)
-  res.render('user/profile', { user: req.session.user, profile: true, userProfile })
-})
+// router.get('/profile', verifyLogin, async (req, res) => {
+//   let userProfile = await userHelpers.getUserProfile(req.session.name)
+//   res.render('user/profile', { user: req.session.user, profile: true, userProfile })
+// })
 
 module.exports = router;

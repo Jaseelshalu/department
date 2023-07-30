@@ -1,3 +1,20 @@
-{{#each candidates}}
-<p>{{this.Turn}}</p>
-{{/each}}
+<div class="candidates">
+    <div class="container">
+        <h2>All Candidates:</h2>
+        <div class="candidates-container">
+            {{#each candidates}}
+            <div class="candidate">
+                <img src="/images/user-images/{{this.userId}}.jpg" alt="">
+                <div class="info">
+                    <p class="turn">{{this.Turn}}</p>
+                    <div class="line"></div>
+                    <p class="name">{{this.Name}}</p>
+                    <p class="sub">{{this.Program}}</p>
+                    <p class="sub">{{this.Institution}}</p>
+                    <p class="email">{{this.Email}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

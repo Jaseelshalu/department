@@ -172,3 +172,88 @@ margin-bottom: 2rem;
   color: #fff;
   margin-top: 1rem;
 }
+.candidates h2{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #7e1441;
+  margin-top: 30px;
+}
+.candidates-container{
+  margin:  2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.candidates-container .candidate{
+  width: 48%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  background-color: #7e1441;
+  color: #fff;
+  gap: 1rem;
+  border-radius: 1rem;
+
+}
+.candidate img{
+  border-radius: 1rem;
+  width: 30%;
+  height: 100%;
+  object-fit: cover;
+  /* height: 100%; */
+}
+.candidate .info{
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  height: auto;
+}
+.candidate .info .turn{
+  width: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  justify-content: center;
+  color: #7e1441;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+.candidate .info .line{
+  width: 90%;
+  height: 1px;
+  background-color: #fff;
+}
+.candidate .info .name{
+  padding-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.candidate .info p{
+  font-size: 1rem;
+  font-weight: 500;
+}
+@media screen and (max-width:992px){
+  .candidates-container .candidate{
+    width: 100%;
+
+  }
+}
+@media screen and (max-width:768px){
+  .candidates-container .candidate{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+
+  }
+ 
+  .candidate img{
+    width: 50%;
+  }
+}
