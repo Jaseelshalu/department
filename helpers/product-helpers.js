@@ -81,22 +81,39 @@ module.exports = {
         return new Promise((resolve, reject) => {
             db.get().collection(collection.USER_COLLECTION).updateOne({ _id: new ObjectId(proId) }, {
                 $set: {
-                    Name: newuser.Name
+                    Name: newuser.Name,
+                    Age: newuser.Age,
+                    Place: newuser.Place,
+                    Address: newuser.Address,
+                    District: newuser.District,
+                    DOB: newuser.DOB,
+                    Institution: newuser.Institution,
+                    Email: newuser.Email,
+                    Phone: newuser.Phone
                 }
             })
-            db.get().collection(collection.TURN_COLLECTION).updateOne({ Name: turnData.Name },{
+            db.get().collection(collection.TURN_COLLECTION).updateOne({ userId: new ObjectId(proId) },{
                 $set: {
-                    Turn: turnData.Turn,
-                    userId: turnData.userId,
-                    Age: turnData.Age,
-                    Place: turnData.Place,
-                    District: turnData.District,
-                    Institution: turnData.Institution,
-                    Email: turnData.Email,
-                    Phone: turnData.Phone
+                    Name: newuser.Name,
+                    Age: newuser.Age,
+                    Place: newuser.Place,
+                    District: newuser.District,
+                    Institution: newuser.Institution,
+                    Email: newuser.Email,
+                    Phone: newuser.Phone
                 }
             }).then(() => {
                 resolve()
+            })
+        })
+    },
+    sortUsers: () => {
+        return new Promise(async (resolve, reject) => {
+            let candidates = await db.get().collection(collection.USER_COLLECTION).find().toArray()
+            var sorted = await candidates.sort((a, b) => a.Name - b.Name);
+            db.get().collection('sorted').insert(sorted).then(() => {
+                console.log("hi");
+            resolve(sorted)
             })
         })
     }

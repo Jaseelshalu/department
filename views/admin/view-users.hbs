@@ -12,6 +12,7 @@
                     <th scope="col">Place</th>
                     <th scope="col">Institution</th>
                     <th scope="col">Image</th>
+                    <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,8 +26,9 @@
                     <td><img src="/images/user-images/{{this._id}}.jpg" alt=""></td>
                     <td>
                         <a href="/dhdcquranadmindashboard/edit-user?id={{this._id}}" class="btn btn-primary">Edit</a>
-                        <a href="/dhdcquranadmindashboard/delete-user/{{this._id}}" class="btn btn-danger"
-                            {{#if ../adminData}}onclick="return confirm('Are you want to remove the user {{this.Name}} ?')"{{else}}{{/if}}>Delete</a>
+                        <a href="/dhdcquranadmindashboard/delete-user/{{this._id}}" class="btn btn-danger" {{#if
+                            ../adminData}}onclick="return confirm('Are you want to remove the user {{this.Name}} ?')"
+                            {{else}}{{/if}}>Delete</a>
                     </td>
                 </tr>
                 {{/each}}
@@ -39,4 +41,9 @@
             height: 50px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $('#usersTable').DataTable();
+        });
+    </script>
 </section>
