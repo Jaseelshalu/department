@@ -28,7 +28,7 @@ router.get('/', async function (req, res, next) {
         userHelpers.findSubject(req.session.name).then(async (subject) => {
           let turn = await userHelpers.findTurn(req.session.name)
           let userProfile = await userHelpers.getUserProfile(req.session.name)
-          res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid, turn, profile: true, userProfile });
+          res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, turn, profile: true, userProfile });
         })
       } else res.redirect('/toss')
     }
