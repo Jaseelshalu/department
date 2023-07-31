@@ -129,9 +129,28 @@ router.get('/all-users', async (req, res) => {
   }
 })
 
+router.get('/tvshow', async (req, res) => {
+  let userProfile = await productHelpers.tvShow() 
+  res.render('admin/view', { userProfile })  
+})
+
 router.get('/view', async (req, res) => {
-  productHelpers.tvshow().then((userProfile) => {
+  productHelpers.viewShow(req.query.id).then((userProfile) => {
     res.render('admin/view', { userProfile })
+  })
+})
+
+router.get('/edit', async (req, res) => {
+  productHelpers.editShow(req.query.id).then((user) => {
+    res.render('admin/edit', { user })
+  })
+})
+
+router.post('/edit', async (req, res) => {
+  let proId = req.body.Id
+  let newuser = req.body
+  productHelpers.editArabic(proId, newuser).then((user) => {
+    res.redirect('/admin/all-users')
   })
 })
 

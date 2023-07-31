@@ -1,33 +1,33 @@
 <style>
-        .turn {
-            width: 60px;
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            justify-content: center;
-            color: #7e1441;
-            height: 60px;
-            background-color: #fff;
-            border-radius: 1rem;
-        }
+    .turn {
+        width: 60px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        justify-content: center;
+        color: #7e1441;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 1rem;
+    }
 
-        .turn span {
-            display: block;
-            font-size: 0.8rem;
-            background-color: #7e1441;
-            border-radius: 0.3rem;
-            color: #fff;
-            padding: 3px 5px;
-        }
-    
+    .turn span {
+        display: block;
+        font-size: 0.8rem;
+        background-color: #7e1441;
+        border-radius: 0.3rem;
+        color: #fff;
+        padding: 3px 5px;
+    }
 </style>
 
 <div class="candidates">
     <div class="container">
         <h2>All Candidates:</h2>
+        <a href="/admin/tvshow" class="turn">TV</a>
         <div class="candidates-container">
             {{#each candidates}}
             <div class="candidate">
@@ -39,7 +39,10 @@
                     <p class="sub">{{this.Program}}</p>
                     <p class="sub">{{this.Institution}}</p>
                     <p class="email">{{this.Email}}</p>
-                    <a href="/admin/view?id={{this._id}}" class="turn">View</a>
+                    <div class="buttons" style="display: flex; gap:1rem"> <a href="/admin/view?id={{this.userId}}" class="turn">View</a>
+                        <a href="/admin/edit?id={{this.userId}}" class="turn">Edit</a>
+                    </div>
+
                 </div>
             </div>
             {{/each}}

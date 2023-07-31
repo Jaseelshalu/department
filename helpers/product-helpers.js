@@ -97,7 +97,9 @@ module.exports = {
                     Name: newuser.Name,
                     Age: newuser.Age,
                     Place: newuser.Place,
+                    Address: newuser.Address,
                     District: newuser.District,
+                    DOB: newuser.DOB,
                     Institution: newuser.Institution,
                     Email: newuser.Email,
                     Phone: newuser.Phone
@@ -108,7 +110,9 @@ module.exports = {
                     Name: newuser.Name,
                     Age: newuser.Age,
                     Place: newuser.Place,
+                    Address: newuser.Address,
                     District: newuser.District,
+                    DOB: newuser.DOB,
                     Institution: newuser.Institution,
                     Email: newuser.Email,
                     Phone: newuser.Phone
@@ -125,11 +129,44 @@ module.exports = {
             })
         })
     },
-    tvshow: () => {
+    tvShow: () => {
         return new Promise(async (resolve, reject) => {
-            let candidates = await db.get().collection(collection.USERDATA_COLLECTION).find({ Order: { $exists: true } }).toArray()
+            let candidates = await db.get().collection(collection.ARABIC_COLLECTION).find({ Order: { $exists: true } }).toArray()
             var sorted = await candidates.sort((a, b) => a.Order - b.Order);
             resolve(sorted[0])
+        })
+    },
+    viewShow: (Id) => {
+        return new Promise(async (resolve, reject) => {
+            let candidate = await db.get().collection(collection.USERDATA_COLLECTION).findOne({ userId: Id })
+            resolve(candidate)
+        })
+    },
+    editShow: (Id) => {
+        return new Promise(async (resolve, reject) => {
+            let candidate = await db.get().collection(collection.ARABIC_COLLECTION).findOne({ userId: Id })
+            resolve(candidate)
+        })
+    },
+    editArabic: (Id, newuser) => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.ARABIC_COLLECTION).updateOne({ userId: Id }, {
+                $set: {
+                    Name: newuser.Name,
+                    Age: newuser.Age,
+                    Place: newuser.Place,
+                    Address: newuser.Address,
+                    District: newuser.District,
+                    DOB: newuser.DOB,
+                    Institution: newuser.Institution,
+                    Email: newuser.Email,
+                    Phone: newuser.Phone,
+                    Turn: newuser.Turn,
+                    Order: newuser.Order
+                }
+            }).then(() => {
+                resolve()
+            })
         })
     }
 }

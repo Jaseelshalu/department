@@ -188,6 +188,7 @@ margin-bottom: 2rem;
 .candidates-container .candidate{
   width: 48%;
   height: 250px;
+  height: auto;
   display: flex;
   align-items: center;
   background-color: #7e1441;
@@ -210,6 +211,8 @@ margin-bottom: 2rem;
   flex-direction: column;
   justify-content: center;
   width: 70%;
+  padding: 1rem;
+
   height: auto;
 }
 .candidate .info .turn{
