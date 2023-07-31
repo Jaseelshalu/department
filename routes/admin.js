@@ -130,8 +130,8 @@ router.get('/all-users', async (req, res) => {
 })
 
 router.get('/view', async (req, res) => {
-  productHelpers.tvshow().then((user) => {
-    res.render('admin/view', { user })
+  productHelpers.tvshow().then((userProfile) => {
+    res.render('admin/view', { userProfile })
   })
 })
 

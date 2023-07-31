@@ -9,6 +9,13 @@
         z-index: 100;
         font-weight: 500;
     }
+    .name{
+        
+        text-transform: capitalize;
+    }
+    .place {
+        text-transform: capitalize;
+    }
 
     .view-container {
         padding: 1rem;
@@ -45,6 +52,7 @@
     }
 
     .left .sub {
+        max-width: 400px;
         width: 80%;
         padding: 1rem 0;
         background-color: #fff;
@@ -60,9 +68,9 @@
     }
 
     .left img {
-        height: 50%;
+        max-height: 400px;
         border-radius: 1rem;
-        width: 80%;
+        width: 400px;
         object-fit: cover;
 
     }
@@ -119,9 +127,9 @@
     <div class="view-container">
 
         <div class="left">
-            <img src="/images/user-images/64c37b8c19f92c34eb8f068a.jpg" class="dhdclogo" alt="">
-            <p class="name">Nabhan</p>
-            <p class="sub">Subject</p>
+            <img src="/images/user-images/{{userProfile.userId}}.jpg" class="dhdclogo" alt="">
+            <p class="name">{{userProfile.Name}}</p>
+            <p class="sub">{{userProfile.Program}}</p>
         </div>
         <div class="right">
             <div class="right-img">
@@ -132,12 +140,12 @@
             </div>
 
             <div class="info">
-                <p class="institution"><strong>Institution:</strong> Manhajur Rashad</p>
-                <p class="place"><strong>Place:</strong> Malappuram</p>
-                <p class="email"><strong>Email:</strong> canabhan@gamil.com</p>
-                <p class="email"><strong>Code:</strong> ST003</p>
-                <p class="email"><strong>District:</strong> Malappuram</p>
-                <p class="email"><strong>Turn:</strong> 10</p>
+                <p class="institution"><strong>Institution:</strong> {{userProfile.Institution}}</p>
+                <p class="place"> <strong>Place:</strong> {{userProfile.Place}}</p>
+                <p class="email"><strong>Email:</strong> {{userProfile.Email}}</p>
+                <p class="email"><strong>Code:</strong> {{userProfile.STNO}}</p>
+                <p class="district"><strong>District:</strong> {{userProfile.District}}</p>
+                <p class="email"><strong>Turn:</strong> {{userProfile.Turn}}</p>
 
             </div>
 

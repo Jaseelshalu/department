@@ -127,9 +127,9 @@ module.exports = {
     },
     tvshow: () => {
         return new Promise(async (resolve, reject) => {
-            let candidates = await db.get().collection(collection.TURN_COLLECTION).find({ STNO: { $exists: true } }).toArray()
-            var sorted = await candidates.sort((a, b) => a.STNO - b.STNO);
-            resolve(sorted)
+            let candidates = await db.get().collection(collection.USERDATA_COLLECTION).find({ Order: { $exists: true } }).toArray()
+            var sorted = await candidates.sort((a, b) => a.Order - b.Order);
+            resolve(sorted[0])
         })
     }
 }
