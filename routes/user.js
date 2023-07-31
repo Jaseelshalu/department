@@ -226,6 +226,24 @@ router.get('/candidates', async (req, res) => {
   }
 })
 
+router.get('/all-users', async (req, res) => {
+  if (req.session.name) {
+    let did = await userHelpers.checkingTurn(req.session.name)
+    if (did) {
+      let candidates = await userHelpers.candidates()
+      res.render('user/all-users', { user: req.session.user, candidates })
+    } else res.redirect('/toss')
+  } else {
+    let candidates = await userHelpers.candidates()
+    res.render('user/all-users', { candidates })
+  }
+})
+
+router.get('/view', async (req, res) => {
+  let userProfile = await userHelpers.getUserProfile(req.session.name)
+  res.render('user/view', { user: req.session.user, profile: true, userProfile })
+})
+
 // router.get('/profile', verifyLogin, async (req, res) => {
 //   let userProfile = await userHelpers.getUserProfile(req.session.name)
 //   res.render('user/profile', { user: req.session.user, profile: true, userProfile })

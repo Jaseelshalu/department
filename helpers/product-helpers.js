@@ -51,6 +51,8 @@ module.exports = {
     adduser: (user) => {
         return new Promise((resolve, reject) => {
             db.get().collection(collection.USER_COLLECTION).insertOne(user).then((data) => {
+                db.get().collection(collection.PENDING_COLLECTION).insertOne(userData)
+                db.get().collection(collection.TURN_PENDING_COLLECTION).insertOne(userData)
                 resolve(data.insertedId)
             })
         })
@@ -80,6 +82,18 @@ module.exports = {
             db.get().collection(collection.USER_COLLECTION).updateOne({ _id: new ObjectId(proId) }, {
                 $set: {
                     Name: newuser.Name
+                }
+            })
+            db.get().collection(collection.TURN_COLLECTION).updateOne({ Name: turnData.Name },{
+                $set: {
+                    Turn: turnData.Turn,
+                    userId: turnData.userId,
+                    Age: turnData.Age,
+                    Place: turnData.Place,
+                    District: turnData.District,
+                    Institution: turnData.Institution,
+                    Email: turnData.Email,
+                    Phone: turnData.Phone
                 }
             }).then(() => {
                 resolve()
