@@ -138,6 +138,23 @@ router.get('/form', verifyLogin, async (req, res) => {
   res.render('user/form', { user: req.session.user, loginErr: req.session.loginErr, unlock })
 })
 
+router.post('/form', (req, res) => {
+  let userId = userHelpers.getUserId()
+  userHelpers.formTransfer(req.body).then(async (response) => {
+    if (response.result) {
+      res.redirect('/')
+    } else if (response.exist) {
+      req.session.loginErr = response.exist
+      res.redirect('/')
+      req.session.err = false
+    } else if (response.sub) {
+      req.session.loginErr = response.sub
+      res.redirect('/form')
+      req.session.loginErr = false
+    }
+  })
+})
+
 router.get('/toss', verifyLogin, async (req, res) => {
   let did = await userHelpers.checkingTurn(req.session.name)
   if (did) res.redirect('/')
@@ -207,24 +224,6 @@ router.get('/candidates', async (req, res) => {
     res.render('user/candidates', { candidates })
 
   }
-
-})
-
-router.post('/form', (req, res) => {
-  let userId = userHelpers.getUserId()
-  userHelpers.formTransfer(req.body).then(async (response) => {
-    if (response.result) {
-      res.redirect('/')
-    } else if (response.exist) {
-      req.session.loginErr = response.exist
-      res.redirect('/')
-      req.session.err = false
-    } else if (response.sub) {
-      req.session.loginErr = response.sub
-      res.redirect('/form')
-      req.session.loginErr = false
-    }
-  })
 })
 
 // router.get('/profile', verifyLogin, async (req, res) => {
