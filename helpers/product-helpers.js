@@ -107,14 +107,9 @@ module.exports = {
             })
         })
     },
-    sortUsers: () => {
-        return new Promise(async (resolve, reject) => {
-            let candidates = await db.get().collection(collection.USER_COLLECTION).find().toArray()
-            var sorted = await candidates.sort((a, b) => a.Name - b.Name);
-            db.get().collection('sorted').insert(sorted).then(() => {
-                console.log("hi");
-            resolve(sorted)
-            })
+    getUserST: () => {
+        return new Promise(async(resolve, reject) => {
+            db.get().collection(collection.USERDATA_COLLECTION).findOne({  })
         })
     }
 }

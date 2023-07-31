@@ -10,7 +10,7 @@ const verifyLogin = (req, res, next) => {
   if (req.session.admin) {
     next()
   } else {
-    res.redirect('/dhdcquranadmindashboard/login')
+    res.redirect('/admin/login')
   }
 }
 
@@ -27,7 +27,7 @@ router.get('/', function (req, res, next) {
 
 router.get('/login', (req, res) => {
   if (req.session.admin) {
-    res.redirect('/dhdcquranadmindashboard')
+    res.redirect('/admin')
   }
   else {
     res.render('admin/login', { admin: true, loginErr: req.session.loginErr, loginPage: true })
@@ -40,17 +40,17 @@ router.post('/login', (req, res) => {
     if (response.status) {
       req.session.admin = response.admin
       req.session.admin.loggedIn = true
-      res.redirect('/dhdcquranadmindashboard')
+      res.redirect('/admin')
     } else {
       req.session.loginErr = "Invalid email or password"
-      res.redirect('/dhdcquranadmindashboard/login')
+      res.redirect('/admin/login')
     }
   })
 })
 
 router.get('/logout', (req, res) => {
   req.session.admin = null
-  res.redirect('/dhdcquranadmindashboard')
+  res.redirect('/admin')
 })
 
 router.get('/signup', (req, res) => {
@@ -62,10 +62,10 @@ router.post('/signup', (req, res) => {
     if (response.status) {
       req.session.admin = response.admin
       req.session.admin.loggedIn = true
-      res.redirect('/dhdcquranadmindashboard')
+      res.redirect('/admin')
     } else {
       req.session.loginErr = response.loginErr
-      res.redirect('/dhdcquranadmindashboard/signup')
+      res.redirect('/admin/signup')
     }
   })
 })
@@ -78,11 +78,11 @@ router.post('/add-user', (req, res) => {
   productHelpers.adduser(req.body).then((id) => {
     if (req.files) {
       image.mv(`./public/images/user-images/${id}.jpg`, (err) => {
-        if (!err) res.redirect('/dhdcquranadmindashboard')
+        if (!err) res.redirect('/admin')
         else console.log(err);
       })
     }
-    res.redirect('/dhdcquranadmindashboard')
+    res.redirect('/admin')
   })
 })
 
@@ -97,7 +97,7 @@ router.post('/edit-user/', (req, res) => {
   let proId = req.body.Id
   let newuser = req.body
   productHelpers.edituser(proId, newuser).then(() => {
-    res.redirect('/dhdcquranadmindashboard')
+    res.redirect('/admin')
     if (req.files) {
       let image = req.files.Image
       image.mv(`./public/images/user-images/${proId}.jpg`)
@@ -108,7 +108,7 @@ router.post('/edit-user/', (req, res) => {
 router.get('/delete-user/:id', verifyLogin, (req, res) => {
   let proId = req.params.id
   productHelpers.deleteuser(proId).then(() => {
-    res.redirect('/dhdcquranadmindashboard')
+    res.redirect('/admin')
     let imagePath = `./public/images/user-images/${proId}.jpg`
     fs.unlink(imagePath, (err) => {
       if (err) console.log(err)
@@ -116,7 +116,7 @@ router.get('/delete-user/:id', verifyLogin, (req, res) => {
   })
 })
 
-router.get('/all-users', verifyLogin, async (req, res) => {
+router.get('/all-users', async (req, res) => {
   if (req.session.name) {
     let did = await userHelpers.checkingTurn(req.session.name)
     if (did) {
@@ -129,17 +129,21 @@ router.get('/all-users', verifyLogin, async (req, res) => {
   }
 })
 
-router.get('/view', verifyLogin, async (req, res) => {
+router.get('/view', async (req, res) => {
   userHelpers.findSubject(req.query.id).then(async (subject) => {
     let turn = await userHelpers.findTurn(req.query.id)
     let userProfile = await userHelpers.getUserProfile(req.query.id)
-    res.render('admin/view', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, turn, profile: true, userProfile })
+    res.render('admin/view', { loginErr: req.session.loginErr, subject, turn, profile: true, userProfile })
   })
 })
 
-router.get('/sortuser', verifyLogin, async (req, res) => {
-  productHelpers.sortUsers().then( () => {
-    res.render('admin/view')
+router.get('/st', async (req, res) => {
+  res.render('admin/st')
+})
+
+router.post('/st', async (req, res) => {
+  productHelpers.getUserST(req.body.userId).then(() => {
+    res.render('admin/userview', {})
   })
 })
 

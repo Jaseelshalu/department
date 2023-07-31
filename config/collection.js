@@ -5,5 +5,6 @@ module.exports = {
     SUBJECT_COLLECTION: 'subject',
     PENDING_COLLECTION: 'pending',
     TURN_COLLECTION: 'form',
-    TURN_PENDING_COLLECTION: 'turnpending'
+    TURN_PENDING_COLLECTION: 'turnpending',
+    USERDATA_COLLECTION: 'userdata'
 }

@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row mt-4">
-            <a href="/dhdcquranadmindashboard/add-product" class="btn btn-success ml-auto mb-3">Add Product</a>
+            <a href="/admin/add-product" class="btn btn-success ml-auto mb-3">Add Product</a>
         </div>
         <table class="table mt-5" id="productsTable">
             <thead>
@@ -25,8 +25,8 @@
                     <td style="width: 500px;">{{this.Description}}</td>
                     <td><img src="/images/product-images/{{this._id}}.jpg" alt=""></td>
                     <td>
-                        <a href="/dhdcquranadmindashboard/edit-product?id={{this._id}}" class="btn btn-primary">Edit</a>
-                        <a href="/dhdcquranadmindashboard/delete-product/{{this._id}}" class="btn btn-danger"
+                        <a href="/admin/edit-product?id={{this._id}}" class="btn btn-primary">Edit</a>
+                        <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger"
                             {{#if ../adminData}}onclick="return confirm('Are you want to remove the product {{this.Name}} ?')"{{else}}{{/if}}>Delete</a>
                     </td>
                 </tr>

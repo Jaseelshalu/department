@@ -1,140 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    .view{
+        background-color: #7e1441;
+        width: 100%;
+        height: 100vh;
+        font-size: 2.5rem;
+        overflow: hidden;
+        position: relative;
+        z-index: 100;
+        font-weight: 500;
+    }
+    .view-container{
+        padding: 1rem;
+        margin-top: 80px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        height: 130px;
+        padding: 0 3rem;
+        top: 0;
+        color: #fff;
+       background-image: linear-gradient(to bottom, #000000, #240f15, #401423, #5e1632, #7e1441);
+    }
+    .left{
+         display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+      width: 50%;
+      gap: 15px;
+      color: #fff;
+    }
+    .left .sub{
+        width: 80%;
+        padding: 2rem 0;
+        background-color: #fff;
+        color: #7e1441;
+        border-radius: 1rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    .name{
+        font-weight: 600;
+    }
+    .left img{
+       height: 50%;
+       border-radius: 1rem;
+       width: 80%;
+       object-fit: cover;
+    
+    }
+       .right{
+        color: #fff;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .right .info{
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 1rem;
+        width: 80%;
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #7e1441;
-            color: #7e1441;
-        }
-        .sha{
-            max-width: 550px;
-            width: 100%;
-        }
-
-        .profile-container .turn {
-            width: 60px;
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            justify-content: center;
-            color: #fff;
-            height: 60px;
-            background-color: #7e1441;
-            border-radius: 1rem;
-        }
-
-        .profile-container .turn span {
-            display: block;
-            font-size: 0.8rem;
-            background-color: #fff;
-            border-radius: 0.3rem;
-            color: #7e1441;
-            padding: 3px 5px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #fff;
-        }
-
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 30px;
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-radius: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 1rem;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 2px solid #7e1441;
-        }
-
-        .user-details {
-            line-height: 1.5;
-        }
-
-        p {
-            margin: 8px 0;
-            font-size: 1rem;
-        }
-
-        .logout  {
-            font-size: 14px;
-            padding: 6px 12px;
-            background-color: #7e1441;
-            color: #fff;
-            border: none;
-            display: inline-flex;
-            display: flex;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .buttons{
-            display: flex;
-            gap: 10px;
-        }
-        .logout:hover{
-            color: #fff;
-        }
-        .sub{
-            padding: 10px 15px;
-            color: #fff;
-            background-color: #7e1441;
-            border-radius: 0.8rem;
-            font-weight: 600;
-            font-size: 1.5rem;
-
-        }
-    </style>
-</head>
-
-<body>
-    <img class="sha" src="/images/sha.png" alt="">
-    <div class="profile-container">
-        <img class="avatar" src="/images/user-images/{{userProfile._id}}.jpg" alt="User Avatar">
-        {{#if turn.Turn}}
-        <p class="turn">{{turn.Turn}} <br><span>Turn</span> </p>
-        {{/if}}
-        <p class="sub"> {{subject.Program}}</p> 
-        <div class="user-details">
-
-            <p><strong>Name:</strong> {{userProfile.Name}}</p>
-            <p><strong>Email:</strong> {{userProfile.Email}}</p>
-            <p><strong>Address:</strong> {{userProfile.Address}}</p>
-            <p><strong>Age:</strong> {{userProfile.Age}}</p>
-            <p><strong>Phone:</strong> {{userProfile.Phone}}</p>
-            <p><strong>Place:</strong> {{userProfile.Place}}</p>
-            <p><strong>District:</strong> {{userProfile.District}}</p>
-            <p><strong>Date of Birth:</strong> {{userProfile.DOB}}</p>
-            <p><strong>Institution:</strong> {{userProfile.Institution}}</p>
-            <!-- Add more user details as needed -->
+    }
+    .right-img{
+        width: 80%;
+    }
+    .right img{
+        width: 100%;
+    }
+    .round{
+        text-align: center;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+    .bg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+    }
+ 
+</style>
+<div class="view">
+    <img src="/images/bg.png" class="bg" alt="">
+      <div class="header">
+            <p>logo</p>
+            <p class="uroos">Uroos</p>
+            <p class="dqlog">dqDHDC</p>
         </div>
-        <div class="buttons">
-        <a href="/logout" class="btn logout ">Logout</a>
-        <a href="/candidates" class="btn logout ">Candidates</a>
-
+    <div class="view-container">
+      
+        <div class="left">
+            <img src="/images/pro.jpg" alt="">
+            <p class="name">Nabhan</p>
+            <p class="sub">Subject</p>
         </div>
+        <div class="right">
+            <div class="right-img">
+                <img src="/images/sha.png" alt="">
+                <div class="btns">
+                    .
+                </div>
+                <p class="round">Second Round</p>
 
+            </div>
+
+            <div class="info">
+           <p class="institution"><strong>Institution:</strong> Manhajur Rashad</p>
+            <p class="place"><strong>Place:</strong> Malappuram</p>
+            <p class="email"><strong>Email:</strong> canabhan@gamil.com</p>
+            <p class="email"><strong>Code:</strong> ST003</p>
+            <p class="email"><strong>District:</strong> Malappuram</p>
+       
+            </div>
+        
+        </div>
     </div>
-</body>
-
-</html>
+    <div class="footer">
+        <p></p>
+    </div>
+</div>
