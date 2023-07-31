@@ -92,7 +92,18 @@ module.exports = {
                     Phone: newuser.Phone
                 }
             })
-            db.get().collection(collection.TURN_COLLECTION).updateOne({ userId: new ObjectId(proId) },{
+            db.get().collection(collection.TURN_COLLECTION).updateOne({ userId: proId }, {
+                $set: {
+                    Name: newuser.Name,
+                    Age: newuser.Age,
+                    Place: newuser.Place,
+                    District: newuser.District,
+                    Institution: newuser.Institution,
+                    Email: newuser.Email,
+                    Phone: newuser.Phone
+                }
+            })
+            db.get().collection(collection.USERDATA_COLLECTION).updateOne({ userId: proId }, {
                 $set: {
                     Name: newuser.Name,
                     Age: newuser.Age,
@@ -107,9 +118,18 @@ module.exports = {
             })
         })
     },
-    getUserST: () => {
-        return new Promise(async(resolve, reject) => {
-            db.get().collection(collection.USERDATA_COLLECTION).findOne({  })
+    getUserST: (stnum) => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.USERDATA_COLLECTION).findOne({ STNO: stnum }).then((user) => {
+                resolve(user)
+            })
+        })
+    },
+    tvshow: () => {
+        return new Promise(async (resolve, reject) => {
+            let candidates = await db.get().collection(collection.TURN_COLLECTION).find({ STNO: { $exists: true } }).toArray()
+            var sorted = await candidates.sort((a, b) => a.STNO - b.STNO);
+            resolve(sorted)
         })
     }
 }

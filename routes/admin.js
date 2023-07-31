@@ -130,10 +130,8 @@ router.get('/all-users', async (req, res) => {
 })
 
 router.get('/view', async (req, res) => {
-  userHelpers.findSubject(req.query.id).then(async (subject) => {
-    let turn = await userHelpers.findTurn(req.query.id)
-    let userProfile = await userHelpers.getUserProfile(req.query.id)
-    res.render('admin/view', { loginErr: req.session.loginErr, subject, turn, profile: true, userProfile })
+  productHelpers.tvshow().then((user) => {
+    res.render('admin/view', { user })
   })
 })
 
@@ -142,8 +140,8 @@ router.get('/st', async (req, res) => {
 })
 
 router.post('/st', async (req, res) => {
-  productHelpers.getUserST(req.body.userId).then(() => {
-    res.render('admin/userview', {})
+  productHelpers.getUserST(req.body.userId).then((userProfile) => {
+    res.render('admin/userview', { userProfile })
   })
 })
 
