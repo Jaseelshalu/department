@@ -23,15 +23,14 @@ router.get('/', async function (req, res, next) {
   if (req.session.user) {
     let didForm = await userHelpers.checkingForm(req.session.name)
     if (didForm) {
-      let formDid = false
       let did = await userHelpers.checkingTurn(req.session.name)
-      if (did) formDid = true
-      userHelpers.findSubject(req.session.name).then(async (subject) => {
-        let turn = await userHelpers.findTurn(req.session.name)
-        let userProfile = await userHelpers.getUserProfile(req.session.name)
-        console.log(turn);
-        res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid, turn, profile: true, userProfile });
-      })
+      if (did) {
+        userHelpers.findSubject(req.session.name).then(async (subject) => {
+          let turn = await userHelpers.findTurn(req.session.name)
+          let userProfile = await userHelpers.getUserProfile(req.session.name)
+          res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, formDid, turn, profile: true, userProfile });
+        })
+      } else res.redirect('/toss')
     }
     else res.redirect('/form')
   } else {
@@ -185,7 +184,6 @@ router.get('/toss', verifyLogin, async (req, res) => {
 })
 
 router.post('/toss', (req, res) => {
-  console.log(req.body);
   userHelpers.turnTransfer(req.body).then((response) => {
     if (response.result) {
       res.redirect('/')
@@ -198,18 +196,18 @@ router.post('/toss', (req, res) => {
 })
 
 router.get('/candidates', async (req, res) => {
-  if(req.session.name){
+  if (req.session.name) {
     let did = await userHelpers.checkingTurn(req.session.name)
     if (did) {
       let candidates = await userHelpers.candidates()
       res.render('user/candidates', { user: req.session.user, candidates })
     } else res.redirect('/toss')
-  }else{
+  } else {
     let candidates = await userHelpers.candidates()
     res.render('user/candidates', { candidates })
 
   }
- 
+
 })
 
 router.post('/form', (req, res) => {

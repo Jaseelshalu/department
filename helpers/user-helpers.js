@@ -119,7 +119,6 @@ module.exports = {
     checkingTurn: (name) => {
         return new Promise(async (resolve, reject) => {
             let exist = await db.get().collection(collection.TURN_COLLECTION).findOne({ Name: name })
-            console.log(exist.Turn);
             if (exist.Turn) resolve({ staus: true })
             else resolve(false)
         })
