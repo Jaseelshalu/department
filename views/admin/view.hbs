@@ -9,6 +9,10 @@
         z-index: 100;
         font-weight: 500;
     }
+    p{
+        animation: 2.5s ease-out 0s 1 opacity;
+
+    }
     .name{
         
         text-transform: capitalize;
@@ -42,7 +46,6 @@
     .dhdclogo {}
 
     .left {
-        animation: 1s ease-out 0s 1 slideInLeft;
 
         display: flex;
         flex-direction: column;
@@ -54,6 +57,8 @@
     }
 
     .left .sub {
+        animation: 1s ease-out 0s 1 slideInDown;
+
         max-width: 400px;
         width: 80%;
         padding: 1rem 0;
@@ -67,6 +72,8 @@
 
     .name {
         font-weight: 600;
+        animation: 1.3s ease-out 0s 1 opacity;
+
     }
 
     .left img {
@@ -114,7 +121,8 @@
 
 
     .round {
-        animation: 1s ease-out 0s 1 slideInRight;
+                animation: 1.3s ease-out 0s 1 opacity;
+
 
         text-align: center;
         width: 100%;
@@ -143,9 +151,14 @@
          @keyframes slideInLeft {
         0% {
           transform: translateX(-100%);
+          opacity: 0;
+        }
+        90%{
+            opacity: 0.8;
         }
         100% {
           transform: translateX(0);
+          opacity: 1;
         }
       }
          @keyframes slideInDown {
@@ -162,6 +175,16 @@
         }
         100% {
           transform: translateY(0);
+        }
+      }
+             @keyframes opacity {
+        0% {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
         }
       }
 </style>
