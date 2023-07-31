@@ -108,6 +108,18 @@ module.exports = {
                         Email: turnData.Email,
                         Phone: turnData.Phone
                     }
+                })
+                db.get().collection(collection.USERDATA_COLLECTION).updateOne({ Name: turnData.Name },{
+                    $set: {
+                        Turn: turnData.Turn,
+                        userId: turnData.userId,
+                        Age: turnData.Age,
+                        Place: turnData.Place,
+                        District: turnData.District,
+                        Institution: turnData.Institution,
+                        Email: turnData.Email,
+                        Phone: turnData.Phone
+                    }
                 }).then((result) => {
                     response.result = result
                     db.get().collection(collection.TURN_PENDING_COLLECTION).deleteOne({ Name: turnData.Name })
