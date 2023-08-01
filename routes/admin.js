@@ -167,7 +167,7 @@ router.get('/st', async (req, res) => {
 
 router.post('/st', async (req, res) => {
   productHelpers.getUserST(req.body.userId).then((userProfile) => {
-    res.render('admin/userview', { userProfile })
+    res.render('admin/userview', {  })
   })
 })
 
