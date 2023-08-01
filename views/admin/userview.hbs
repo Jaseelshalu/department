@@ -111,10 +111,8 @@
     <img class="sha" src="/images/sha.png" alt="">
     <div class="profile-container">
         <img class="avatar" src="/images/user-images/{{userProfile.userId}}.jpg" alt="User Avatar">
-        {{#if turn.Turn}}
-        <p class="turn">{{turn.Turn}} <br><span>Turn</span> </p>
-        {{/if}}
-        <p class="sub"> {{subject.Program}}</p> 
+        <p class="turn">{{userProfile.Turn}} <br><span>Turn</span> </p>
+        <p class="sub"> {{userProfile.Program}}</p> 
         <div class="user-details">
 
             <p><strong>Name:</strong> {{userProfile.Name}}</p>
