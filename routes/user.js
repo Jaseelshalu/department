@@ -23,7 +23,7 @@ router.get('/', async function (req, res, next) {
   if (req.session.user) {
     let didForm = await userHelpers.checkingForm(req.session.name)
     if (didForm) {
-      let formDid = false
+      let formDid = false 
       let did = await userHelpers.checkingTurn(req.session.name)
       if (did) formDid = true
       userHelpers.findSubject(req.session.name).then(async (subject) => {

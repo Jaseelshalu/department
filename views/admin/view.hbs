@@ -246,3 +246,26 @@
     <p></p>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+  function changeSection() {
+  $.ajax({
+    url: '/admin/tvshowlive',
+    method: 'GET',
+    success: (data) => {
+      if (data.Name !== $('#namePro').text()) {
+        location.reload();
+      }
+    }
+  });
+}
+
+// Initialize the userProfile object
+let userProfile = {};
+
+// Call the changeSection function immediately
+changeSection();
+
+// Call the changeSection function every 1000ms (1 second)
+setInterval(changeSection, 1000);
+</script>
