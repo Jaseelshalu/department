@@ -1,16 +1,15 @@
 $(document).ready(function () {
-    $('#usersTable').DataTable();
+  $('#usersTable').DataTable();
 });
 
 function changeSection() {
   $.ajax({
     url: '/admin/tvshowlive',
     method: 'GET',
-    success: (response) => {
-      let section = document.getElementById('change-section');
-
-      // Check if the response is different from the current userProfile data
-      if (JSON.stringify(response) !== JSON.stringify(userProfile)) {
+    success: (data) => {
+      let connect = document.getElementById('namePro').innerHTML()
+      if (data.Name !== connect) {
+        // Reload the page
         location.reload();
       }
     }

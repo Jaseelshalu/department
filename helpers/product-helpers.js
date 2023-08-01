@@ -131,12 +131,11 @@ module.exports = {
     },
     tvShow: () => {
         return new Promise(async (resolve, reject) => {
-            console.log("kkk");
             let candidates = await db.get().collection(collection.ARABIC_COLLECTION).find({ Order: { $exists: true } }).toArray()
             var sorted = await candidates.sort((a, b) => a.Order - b.Order);
             resolve(sorted[0])
         })
-    },
+    }, 
     viewShow: (Id) => {
         return new Promise(async (resolve, reject) => {
             let candidate = await db.get().collection(collection.USERDATA_COLLECTION).findOne({ userId: Id })
