@@ -131,6 +131,7 @@ module.exports = {
     },
     tvShow: () => {
         return new Promise(async (resolve, reject) => {
+            console.log("kkk");
             let candidates = await db.get().collection(collection.ARABIC_COLLECTION).find({ Order: { $exists: true } }).toArray()
             var sorted = await candidates.sort((a, b) => a.Order - b.Order);
             resolve(sorted[0])

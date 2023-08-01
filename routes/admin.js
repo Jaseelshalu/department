@@ -134,6 +134,11 @@ router.get('/tvshow', async (req, res) => {
   res.render('admin/view', { userProfile })  
 })
 
+router.get('/tvshowlive', async (req, res) => {
+  let userProfile = await productHelpers.tvShow() 
+  res.json(userProfile)  
+})
+
 router.get('/view', async (req, res) => {
   productHelpers.viewShow(req.query.id).then((userProfile) => {
     res.render('admin/view', { userProfile })
