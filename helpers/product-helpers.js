@@ -135,7 +135,7 @@ module.exports = {
             var sorted = await candidates.sort((a, b) => a.Order - b.Order);
             resolve(sorted[0])
         })
-    }, 
+    },
     viewShow: (Id) => {
         return new Promise(async (resolve, reject) => {
             let candidate = await db.get().collection(collection.USERDATA_COLLECTION).findOne({ userId: Id })
@@ -146,6 +146,17 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let candidate = await db.get().collection(collection.ARABIC_COLLECTION).findOne({ userId: Id })
             resolve(candidate)
+        })
+    },
+    overShow: (Id, Order) => {
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.ARABIC_COLLECTION).updateOne({ userId: Id }, {
+                $set: {
+                    Order: Order+"00"
+                }
+            }).then(() => {
+                resolve()
+            }) 
         })
     },
     editArabic: (Id, newuser) => {

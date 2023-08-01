@@ -153,6 +153,12 @@ router.get('/edit', async (req, res) => {
   })
 })
 
+router.get('/over', async (req, res) => {
+  productHelpers.overShow(req.query.id, req.query.order).then(() => {
+    res.redirect('/admin/all-users')
+  })
+})
+
 router.post('/edit', async (req, res) => {
   let proId = req.body.Id
   let newuser = req.body
