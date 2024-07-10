@@ -1,684 +1,527 @@
-<section class="mainForm">
-    <div class="">
-        <form action="/form" method="post" onsubmit="return validateForm()">
-            <div class="">
-                <div class="form">
-                    <label for="">Select One: </label><br>
+<div class="header">
+    <div class="container">
+        <div class="header-wrapper">
+            <img src="/images/9.webp" class="img1" alt="">
+            <img src="/images/10.webp" class="img2" alt="">
+        </div>
+    </div>
+</div>
 
-                    <div class="formBox">
-                        <div class="numIco">
+<div class="main-div">
+    <div class="container">
+        <span class="divider">Let's Choose</span>
+        <div class="main-div-wrapper" id="locking">
+            <form action="/form" method="post" onsubmit="return validateForm()">
+                <div class="options1" id="options1">
+                    <div class="lock {{#if unlock.s1}}unlock{{/if}}" {{#if unlock.s1}}{{else}}onclick="selectRadio(1)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio1" value="السوسي عن ابي عمرو" {{#if
+                            unlock.s1}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s1}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s1}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio1" value="قالون عن نافع">
-                                {{#if unlock.s1}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">1</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s2}}unlock{{/if}}" {{#if unlock.s2}}{{else}}onclick="selectRadio(2)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio2" value="الدوري عن الكسائي" {{#if
+                            unlock.s2}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s2}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s2}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio2" value="ورش عن نافع">
-                                {{#if unlock.s2}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">2</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s3}}unlock{{/if}}" {{#if unlock.s3}}{{else}}onclick="selectRadio(3)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio3" value="ابن ذكوان عن ابن عامر" {{#if
+                            unlock.s3}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s3}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s3}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio3" value="البزي عن ابن كثير ">
-                                {{#if unlock.s3}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">3</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s4}}unlock{{/if}}" {{#if unlock.s4}}{{else}}onclick="selectRadio(4)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio4" value="ابو الحارث عن الكسائي" {{#if
+                            unlock.s4}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s4}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s4}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio4" value="قنبل عن ابن كثير ">
-                                {{#if unlock.s4}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">4</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s5}}unlock{{/if}}" {{#if unlock.s5}}{{else}}onclick="selectRadio(5)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio5" value="شعبة عن عاصم" {{#if
+                            unlock.s5}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s5}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s5}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio5" value="الدوري عن أبي عمرو">
-                                {{#if unlock.s5}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">5</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s6}}unlock{{/if}}" {{#if unlock.s6}}{{else}}onclick="selectRadio(6)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio6" value="خلاد عن حمزة" {{#if
+                            unlock.s6}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s6}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s6}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio6" value="السوسي عن أبي عمرو">
-                                {{#if unlock.s6}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">6</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s7}}unlock{{/if}}" {{#if unlock.s7}}{{else}}onclick="selectRadio(7)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio7" value="قالون عن نافع" {{#if
+                            unlock.s7}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s7}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s7}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio7" value="هشام عن ابن عامر">
-                                {{#if unlock.s7}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">7</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s8}}unlock{{/if}}" {{#if unlock.s8}}{{else}}onclick="selectRadio(8)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio8" value="خلف عن حمزة" {{#if
+                            unlock.s8}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s8}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s8}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio8" value="ابن ذكوان عن ابن عامر">
-                                {{#if unlock.s8}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">8</p>{{/if}}
-                            </label>
-                        </div>
+                    <div class="lock {{#if unlock.s9}}unlock{{/if}}" {{#if unlock.s9}}{{else}}onclick="selectRadio(9)"
+                        {{/if}}>
+                        <input type="radio" name="Program" id="formRadio9" value="قنبل عن ابن كثير" {{#if
+                            unlock.s9}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s9}}-open{{/if}}"></i>
+                    </div>
 
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s10}}unlock{{/if}}" {{#if
+                        unlock.s10}}{{else}}onclick="selectRadio(10)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio10" value="البزي عن ابن كثير" {{#if
+                            unlock.s10}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s10}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s9}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio9" value="شعبة عن عاصم">
-                                {{#if unlock.s9}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">9</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s11}}unlock{{/if}}" {{#if
+                        unlock.s11}}{{else}}onclick="selectRadio(11)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio11" value="هشام عن ابن عامر" {{#if
+                            unlock.s11}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s11}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s10}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio10" value="الدوري عن الكسائي">
-                                {{#if unlock.s10}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">10</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s12}}unlock{{/if}}" {{#if
+                        unlock.s12}}{{else}}onclick="selectRadio(12)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio12" value="الدوري عن ابي عمرو" {{#if
+                            unlock.s12}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s12}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s11}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio11" value="خلف عن حمزة">
-                                {{#if unlock.s11}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">11</p>{{/if}}
-                            </label>
-                        </div>
+                    <div class="lock {{#if unlock.s13}}unlock{{/if}}" {{#if
+                        unlock.s13}}{{else}}onclick="selectRadio(13)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio13" value="ورش عن نافع" {{#if
+                            unlock.s13}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s13}}-open{{/if}}"></i>
+                    </div>
 
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s14}}unlock{{/if}}" {{#if
+                        unlock.s14}}{{else}}onclick="selectRadio(14)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio14" value="شعبة عن عاصم" {{#if
+                            unlock.s14}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s14}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s12}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio12" value="خلاد عن حمزة">
-                                {{#if unlock.s12}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">12</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s15}}unlock{{/if}}" {{#if
+                        unlock.s15}}{{else}}onclick="selectRadio(15)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio15" value="خلاد عن حمزة" {{#if
+                            unlock.s15}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s15}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s13}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio13" value="ابو الحارث عن الكسائي">
-                                {{#if unlock.s13}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">13</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s16}}unlock{{/if}}" {{#if
+                        unlock.s16}}{{else}}onclick="selectRadio(16)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio16" value="هشام عن ابن عامر" {{#if
+                            unlock.s16}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s16}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s14}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio14" value="الدوري عن الكسائي">
-                                {{#if unlock.s14}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">14</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s17}}unlock{{/if}}" {{#if
+                        unlock.s17}}{{else}}onclick="selectRadio(17)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio17" value="خلف عن حمزة" {{#if
+                            unlock.s17}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s17}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s15}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio15" value="قالون عن نافع">
-                                {{#if unlock.s15}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">15</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s18}}unlock{{/if}}" {{#if
+                        unlock.s18}}{{else}}onclick="selectRadio(18)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio18" value="ورش عن نافع" {{#if
+                            unlock.s18}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s18}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s16}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio16" value="ورش عن نافع">
-                                {{#if unlock.s16}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">16</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s19}}unlock{{/if}}" {{#if
+                        unlock.s19}}{{else}}onclick="selectRadio(19)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio19" value="الدوري عن ابي عمرو" {{#if
+                            unlock.s19}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s19}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s17}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio17" value="البزي عن ابن كثير ">
-                                {{#if unlock.s17}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">17</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s20}}unlock{{/if}}" {{#if
+                        unlock.s20}}{{else}}onclick="selectRadio(20)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio20" value="البزي عن ابن كثير" {{#if
+                            unlock.s20}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s20}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s18}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio18" value="قنبل عن ابن كثير ">
-                                {{#if unlock.s18}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">18</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s21}}unlock{{/if}}" {{#if
+                        unlock.s21}}{{else}}onclick="selectRadio(21)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio21" value="قالون عن نافع" {{#if
+                            unlock.s21}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s21}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s19}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio19" value="الدوري عن أبي عمرو">
-                                {{#if unlock.s19}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">19</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s22}}unlock{{/if}}" {{#if
+                        unlock.s22}}{{else}}onclick="selectRadio(22)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio22" value="قنبل عن ابن كثير" {{#if
+                            unlock.s22}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s22}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s20}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio20" value="السوسي عن أبي عمرو">
-                                {{#if unlock.s20}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">20</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s23}}unlock{{/if}}" {{#if
+                        unlock.s23}}{{else}}onclick="selectRadio(23)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio23" value="ابن ذكوان عن ابن عامر" {{#if
+                            unlock.s23}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s23}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s21}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio21" value="هشام عن ابن عامر">
-                                {{#if unlock.s21}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">21</p>{{/if}}
-                            </label>
-                        </div>
+                    <div class="lock {{#if unlock.s24}}unlock{{/if}}" {{#if
+                        unlock.s24}}{{else}}onclick="selectRadio(24)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio24" value="السوسي عن ابي عمرو" {{#if
+                            unlock.s24}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s24}}-open{{/if}}"></i>
+                    </div>
 
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s25}}unlock{{/if}}" {{#if
+                        unlock.s25}}{{else}}onclick="selectRadio(25)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio25" value="الدوري عن الكسائي" {{#if
+                            unlock.s25}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s25}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s22}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio22" value="ابن ذكوان عن ابن عامر">
-                                {{#if unlock.s22}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">22</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s26}}unlock{{/if}}" {{#if
+                        unlock.s26}}{{else}}onclick="selectRadio(26)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio26" value="ابو الحارث عن الكسائي" {{#if
+                            unlock.s26}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s26}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s23}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio23" value="شعبة عن عاصم">
-                                {{#if unlock.s23}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">23</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s27}}unlock{{/if}}" {{#if
+                        unlock.s27}}{{else}}onclick="selectRadio(27)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio27" value="قالون عن نافع" {{#if
+                            unlock.s27}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s27}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s24}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio24" value="خلف عن حمزة">
-                                {{#if unlock.s24}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">24</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s28}}unlock{{/if}}" {{#if
+                        unlock.s28}}{{else}}onclick="selectRadio(28)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio28" value="خلاد عن حمزة" {{#if
+                            unlock.s28}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s28}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s25}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio25" value="خلاد عن حمزة">
-                                {{#if unlock.s25}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">25</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
+                    <div class="lock {{#if unlock.s29}}unlock{{/if}}" {{#if
+                        unlock.s29}}{{else}}onclick="selectRadio(29)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio29" value="السوسي عن ابي عمرو" {{#if
+                            unlock.s29}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s29}}-open{{/if}}"></i>
+                    </div>
 
-                            <label>
-                                <input {{#if unlock.s26}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio26" value="ابو الحارث عن الكسائي">
-                                {{#if unlock.s26}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">26</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
-
-                            <label>
-                                <input {{#if unlock.s27}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio27" value="الدوري عن الكسائي">
-                                {{#if unlock.s27}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">27</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
-
-                            <label>
-                                <input {{#if unlock.s28}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio28" value="السوسي عن أبي عمرو">
-                                {{#if unlock.s28}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">28</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
-
-                            <label>
-                                <input {{#if unlock.s29}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio29" value="شعبة عن عاصم">
-                                {{#if unlock.s29}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">29</p>{{/if}}
-                            </label>
-                        </div>
-                        <div class="numIco">
-
-                            <label>
-                                <input {{#if unlock.s30}}class="form-check-input d-none" disabled{{else}}
-                                    class="form-check-input d-none radioImage" {{/if}} type="radio" name="Program"
-                                    id="formRadio30" value="خلاد عن حمزة">
-                                {{#if unlock.s30}}<p class="numIcon nump">selected</p>
-                                {{else}}<p class="numIcon">30</p>{{/if}}
-                            </label>
-                        </div>
-
-                        <br>
-                        <input type="text" name="Name" value="{{user.Name}}" hidden>
-                        <input type="text" name="userId" value="{{user._id}}" hidden>
-                        <input type="radio" name="RadioName" value="formRadio1" id="sherikkum1" hidden>
-                        <input type="radio" name="RadioName" value="formRadio2" id="sherikkum2" hidden>
-                        <input type="radio" name="RadioName" value="formRadio3" id="sherikkum3" hidden>
-                        <input type="radio" name="RadioName" value="formRadio4" id="sherikkum4" hidden>
-                        <input type="radio" name="RadioName" value="formRadio5" id="sherikkum5" hidden>
-                        <input type="radio" name="RadioName" value="formRadio6" id="sherikkum6" hidden>
-                        <input type="radio" name="RadioName" value="formRadio7" id="sherikkum7" hidden>
-                        <input type="radio" name="RadioName" value="formRadio8" id="sherikkum8" hidden>
-                        <input type="radio" name="RadioName" value="formRadio9" id="sherikkum9" hidden>
-                        <input type="radio" name="RadioName" value="formRadio10" id="sherikkum10" hidden>
-                        <input type="radio" name="RadioName" value="formRadio11" id="sherikkum11" hidden>
-                        <input type="radio" name="RadioName" value="formRadio12" id="sherikkum12" hidden>
-                        <input type="radio" name="RadioName" value="formRadio13" id="sherikkum13" hidden>
-                        <input type="radio" name="RadioName" value="formRadio14" id="sherikkum14" hidden>
-                        <input type="radio" name="RadioName" value="formRadio15" id="sherikkum15" hidden>
-                        <input type="radio" name="RadioName" value="formRadio16" id="sherikkum16" hidden>
-                        <input type="radio" name="RadioName" value="formRadio17" id="sherikkum17" hidden>
-                        <input type="radio" name="RadioName" value="formRadio18" id="sherikkum18" hidden>
-                        <input type="radio" name="RadioName" value="formRadio19" id="sherikkum19" hidden>
-                        <input type="radio" name="RadioName" value="formRadio20" id="sherikkum20" hidden>
-                        <input type="radio" name="RadioName" value="formRadio21" id="sherikkum21" hidden>
-                        <input type="radio" name="RadioName" value="formRadio22" id="sherikkum22" hidden>
-                        <input type="radio" name="RadioName" value="formRadio23" id="sherikkum23" hidden>
-                        <input type="radio" name="RadioName" value="formRadio24" id="sherikkum24" hidden>
-                        <input type="radio" name="RadioName" value="formRadio25" id="sherikkum25" hidden>
-                        <input type="radio" name="RadioName" value="formRadio26" id="sherikkum26" hidden>
-                        <input type="radio" name="RadioName" value="formRadio27" id="sherikkum27" hidden>
-                        <input type="radio" name="RadioName" value="formRadio28" id="sherikkum28" hidden>
-                        <input type="radio" name="RadioName" value="formRadio29" id="sherikkum29" hidden>
-                        <input type="radio" name="RadioName" value="formRadio30" id="sherikkum30" hidden>
-
-                        <input type="submit" class="btn button btn-lg" value="Submit">
-                        {{#if loginErr}}
-                        <div class="alert alert-danger" id="hideMe">
-                            {{loginErr}}
-                        </div>
-                        {{/if}}
+                    <div class="lock {{#if unlock.s30}}unlock{{/if}}" {{#if
+                        unlock.s30}}{{else}}onclick="selectRadio(30)" {{/if}}>
+                        <input type="radio" name="Program" id="formRadio30" value="الدوري عن الكسائي" {{#if
+                            unlock.s30}}disabled{{/if}}>
+                        <i class="fa-solid fa-lock{{#if unlock.s30}}-open{{/if}}"></i>
                     </div>
                 </div>
-            </div>
-        </form>
 
-        <script>
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio1');
-                const sherikkum1 = document.getElementById('sherikkum1');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio2');
-                const sherikkum1 = document.getElementById('sherikkum2');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio3');
-                const sherikkum1 = document.getElementById('sherikkum3');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio4');
-                const sherikkum1 = document.getElementById('sherikkum4');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio5');
-                const sherikkum1 = document.getElementById('sherikkum5');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio6');
-                const sherikkum1 = document.getElementById('sherikkum6');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio7');
-                const sherikkum1 = document.getElementById('sherikkum7');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio8');
-                const sherikkum1 = document.getElementById('sherikkum8');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio9');
-                const sherikkum1 = document.getElementById('sherikkum9');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio10');
-                const sherikkum1 = document.getElementById('sherikkum10');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio11');
-                const sherikkum1 = document.getElementById('sherikkum11');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio12');
-                const sherikkum1 = document.getElementById('sherikkum12');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio13');
-                const sherikkum1 = document.getElementById('sherikkum13');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio14');
-                const sherikkum1 = document.getElementById('sherikkum14');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio15');
-                const sherikkum1 = document.getElementById('sherikkum15');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio16');
-                const sherikkum1 = document.getElementById('sherikkum16');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio17');
-                const sherikkum1 = document.getElementById('sherikkum17');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio18');
-                const sherikkum1 = document.getElementById('sherikkum18');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio19');
-                const sherikkum1 = document.getElementById('sherikkum19');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio20');
-                const sherikkum1 = document.getElementById('sherikkum20');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio21');
-                const sherikkum1 = document.getElementById('sherikkum21');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio22');
-                const sherikkum1 = document.getElementById('sherikkum22');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio23');
-                const sherikkum1 = document.getElementById('sherikkum23');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio24');
-                const sherikkum1 = document.getElementById('sherikkum24');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio25');
-                const sherikkum1 = document.getElementById('sherikkum25');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio26');
-                const sherikkum1 = document.getElementById('sherikkum26');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio27');
-                const sherikkum1 = document.getElementById('sherikkum27');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio28');
-                const sherikkum1 = document.getElementById('sherikkum28');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio29');
-                const sherikkum1 = document.getElementById('sherikkum29');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-            document.addEventListener('DOMContentLoaded', function () {
-                const formRadio1 = document.getElementById('formRadio30');
-                const sherikkum1 = document.getElementById('sherikkum30');
-
-                formRadio1.addEventListener('change', function () {
-                    sherikkum1.checked = this.checked;
-                });
-            });
-
-            function changeImage(className) {
-                const radioButtons = document.querySelectorAll('.' + className);
-
-                radioButtons.forEach((radioButton) => {
-                    const image = radioButton.parentNode.querySelector('.imageRadio');
-                    if (radioButton.checked) {
-                        image.src = '/images/unlocked.png';
-                    } else {
-                        image.src = '/images/lock.png';
-                    }
-                });
-            }
-
-            // Call the function when the radio buttons are clicked
-            document.addEventListener('click', function (event) {
-                const target = event.target;
-                if (target.classList.contains('radioImage')) {
-                    changeImage('radioImage');
-                }
-            });
-
-            function validateForm() {
-                var radioButtons = document.getElementsByName('Program');
-                var isChecked = false;
-
-                for (var i = 0; i < radioButtons.length; i++) {
-                    if (radioButtons[i].checked) {
-                        isChecked = true;
-                        break;
-                    }
-                }
-
-                if (!isChecked) {
-                    alert('Please select an option before submitting.');
-                    return false; // Prevent form submission
-                }
-
-                return true; // Allow form submission
-            }
-
-            function hideParagraph() {
-                var paragraph = document.getElementById("hideMe");
-                paragraph.style.display = "none";
-            }
-
-        </script>
-        <script>
-            function hideParagraph() {
-                var paragraph = document.getElementById("hideMe");
-                paragraph.style.display = "none";
-            }
-
-            document.addEventListener("DOMContentLoaded", function () {
-                setTimeout(hideParagraph, 3000);
-            });
-        </script>
+                <div id="options2">
+                    <input type="radio" name="RadioName" value="formRadio1" id="formRadio1" hidden>
+                    <input type="radio" name="RadioName" value="formRadio2" id="formRadio2" hidden>
+                    <input type="radio" name="RadioName" value="formRadio3" id="formRadio3" hidden>
+                    <input type="radio" name="RadioName" value="formRadio4" id="formRadio4" hidden>
+                    <input type="radio" name="RadioName" value="formRadio5" id="formRadio5" hidden>
+                    <input type="radio" name="RadioName" value="formRadio6" id="formRadio6" hidden>
+                    <input type="radio" name="RadioName" value="formRadio7" id="formRadio7" hidden>
+                    <input type="radio" name="RadioName" value="formRadio8" id="formRadio8" hidden>
+                    <input type="radio" name="RadioName" value="formRadio9" id="formRadio9" hidden>
+                    <input type="radio" name="RadioName" value="formRadio10" id="formRadio10" hidden>
+                    <input type="radio" name="RadioName" value="formRadio11" id="formRadio11" hidden>
+                    <input type="radio" name="RadioName" value="formRadio12" id="formRadio12" hidden>
+                    <input type="radio" name="RadioName" value="formRadio13" id="formRadio13" hidden>
+                    <input type="radio" name="RadioName" value="formRadio14" id="formRadio14" hidden>
+                    <input type="radio" name="RadioName" value="formRadio15" id="formRadio15" hidden>
+                    <input type="radio" name="RadioName" value="formRadio16" id="formRadio16" hidden>
+                    <input type="radio" name="RadioName" value="formRadio17" id="formRadio17" hidden>
+                    <input type="radio" name="RadioName" value="formRadio18" id="formRadio18" hidden>
+                    <input type="radio" name="RadioName" value="formRadio19" id="formRadio19" hidden>
+                    <input type="radio" name="RadioName" value="formRadio20" id="formRadio20" hidden>
+                    <input type="radio" name="RadioName" value="formRadio21" id="formRadio21" hidden>
+                    <input type="radio" name="RadioName" value="formRadio22" id="formRadio22" hidden>
+                    <input type="radio" name="RadioName" value="formRadio23" id="formRadio23" hidden>
+                    <input type="radio" name="RadioName" value="formRadio24" id="formRadio24" hidden>
+                    <input type="radio" name="RadioName" value="formRadio25" id="formRadio25" hidden>
+                    <input type="radio" name="RadioName" value="formRadio26" id="formRadio26" hidden>
+                    <input type="radio" name="RadioName" value="formRadio27" id="formRadio27" hidden>
+                    <input type="radio" name="RadioName" value="formRadio28" id="formRadio28" hidden>
+                    <input type="radio" name="RadioName" value="formRadio29" id="formRadio29" hidden>
+                    <input type="radio" name="RadioName" value="formRadio30" id="formRadio30" hidden>
+                    <input type="text" name="Name" value="{{user.Name}}" hidden>
+                    <input type="text" name="userId" value="{{user._id}}" hidden>
+                </div>
+                <div class="btn-div">
+                    <button class="btn3">submit</button>
+                </div>
+                {{#if loginErr}}
+                <div class="alert alert-danger" id="hideMe">
+                    {{loginErr}}
+                </div>
+                {{/if}}
+            </form>
+        </div>
     </div>
-</section>
+</div>
+
+<script>
+    function validateForm() {
+        var radioButtons = document.getElementsByName('Program');
+        var isChecked = false;
+
+        for (var i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        if (!isChecked) {
+            alert('Please select an option before submitting.');
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+
+    function selectRadio(index) {
+        // Select the corresponding formRadio in option1
+        document.getElementById(`formRadio${index}`).checked = true;
+
+        // Select the corresponding formRadio in option2
+        document.querySelector(`#options2 input[value="formRadio${index}"]`).checked = true;
+    }
+
+    function hideParagraph() {
+        var paragraph = document.getElementById("hideMe");
+        paragraph.style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(hideParagraph, 3000);
+    });
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100..800&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: "Anek Malayalam", sans-serif;
+        /* aca38e */
+        /* 1100c */
+        /* 474131 */
+    }
+
+    .container {
+        max-width: 1140px;
+        margin: auto;
+        width: 90%;
+    }
+
+    .header {
+        width: 100%;
+        padding: 32px 0;
+        text-align: center;
+        background: rgb(26, 24, 18);
+        background: linear-gradient(90deg, rgba(26, 24, 18, 1) 1%, rgba(52, 48, 36, 1) 28%, rgba(128, 118, 90, 1) 100%);
+
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .img1 {
+                max-width: 200px;
+                width: 40%;
+                display: block;
+
+            }
+
+            .img2 {
+                max-width: 300px;
+                width: 60%;
+                display: block;
+
+            }
+        }
+    }
+
+    .divider {
+        background: #575136;
+        max-width: 500px;
+
+            {
+                {
+                !-- padding: 6px 0;
+                --
+            }
+        }
+
+        width: 60%;
+        display: inline-block;
+        text-align: center;
+        margin: 20px auto;
+        position: absolute;
+        left: 50%;
+        color: #fff;
+        transform: translatex(-50%);
+
+    }
+
+    .main-div {
+        position: relative;
+        min-height: 77vh;
+        height: auto;
+        background: rgb(17, 16, 12);
+        background: linear-gradient(90deg, rgba(17, 16, 12, 1) 0%, rgba(40, 36, 27, 1) 33%, rgba(73, 66, 47, 1) 100%);
+
+        .main-div-wrapper {
+
+            /* width: 800px; */
+            /* padding: 60px 0; */
+                {
+                    {
+                    !-- padding-top: 60px;
+                    padding-bottom: 60px;
+                    --
+                }
+            }
+
+            width: 85%;
+
+                {
+                    {
+                    !-- display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    --
+                }
+            }
+
+            margin: auto;
+            gap: 15px;
+
+            form {
+                .options1 {
+                    padding-top: 60px;
+                    padding-bottom: 60px;
+                    width: 85%;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    margin: auto;
+                    gap: 15px;
+
+                    .lock {
+                        cursor: pointer;
+                        color: #1a1915;
+                        background: #6b634b;
+                        display: inline;
+                        height: 90px;
+                        width: 90px;
+                        border-radius: 15px;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all ease 0.4s;
+
+                        &:hover {
+                            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+                            background-color: #57523c;
+                            transform: scale(1.1);
+                        }
+
+                        i {
+                            font-size: 27px;
+                            transition: all ease 0.4s;
+
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+
+                        &.unlock {
+                            background: #474130;
+
+                            i {
+                                &:hover {
+                                    transform: scale(1);
+                                }
+                            }
+
+                            &:hover {
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btn-div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding-bottom: 30px;
+            }
+
+            @media only screen and (max-width: 992px) {
+                .main-div-wrapper {
+                    width: 100% !important;
+                    gap: 12px;
+
+                    .lock {
+                        height: 65px;
+                        width: 65px;
+                        transition: all ease 0.4s;
+
+                        &:hover {
+                            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+                            background-color: #57523c;
+                        }
+                    }
+
+                    i {
+                        font-size: 25px;
+                    }
+                }
+            }
+
+            .btn3 {
+                border: none;
+                outline: none;
+                padding: 10px 80px;
+                font-size: 14px;
+                border-radius: 32px;
+                color: #4f4b3c;
+                background: #aca38e;
+                transition: all ease 0.4s;
+                display: block;
+
+                &:hover {
+                    background-color: #4f4b3c;
+                    color: #aca38e;
+                }
+            }
+
+            input[type="radio"] {
+                position: absolute;
+                opacity: 0;
+                display: none;
+            }
+
+            .lock:has(input[type="radio"]:checked) {
+                transform: scale(1.1);
+                /* Increased scale to make the change more noticeable */
+                background-color: #474130;
+            }
+</style>

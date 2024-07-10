@@ -8,7 +8,8 @@ const state = {
 // const url = "mongodb://127.0.0.1:27017";
 const url = "mongodb+srv://jaseelsha:jaseelsha@shopping-cart.keyvqql.mongodb.net/?retryWrites=true&w=majority";
 // database name
-const dbName = "department";
+// const dbName = "department";
+const dbName = "alshathibi2425";
 
 // create a new mongodb client object
 const client = new MongoClient(url);

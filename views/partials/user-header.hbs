@@ -1,17 +1,131 @@
-{{!-- {{#if profile}}
-{{else}}
+{{#if profile}}
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/profile">Profile</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="nav">
+        <div class="">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="/images/8.webp" alt="">
+                </div>
+                <div class="btn-section">
+                    <a href="/login" style="text-decoration:none;" class="btn1">Login</a>
+                    <a href="/candidates" style="text-decoration:none;" class="btn2">Candidates</a>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 </header>
-{{/if}} --}}
+{{else}}
+<header>
+    <div class="nav">
+        <div class="">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="/images/8.webp" alt="">
+                </div>
+                <div class="btn-section">
+                    <a href="/login" style="text-decoration:none;" class="btn1">Login</a>
+                    <a href="/candidates" style="text-decoration:none;" class="btn2">Candidates</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{/if}}
+<style>
+    .nav {
+        position: absolute;
+        background: transparent;
+        /* left: 30px; */
+        /* width: 90%; */
+        /* margin: 0 32px; */
+        height: 100px;
+        left: 60px;
+        right: 60px;
+        z-index: 5555555;
+
+        .nav-wrapper {
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo {
+                padding-top: 8px;
+
+                img {
+                    height: 40px;
+
+                }
+            }
+        }
+    }
+
+
+    .btn1 {
+        border: none;
+        outline: none;
+        padding: 8px 32px;
+        font-size: 14px;
+        border-radius: 32px;
+        color: #4f4b3c;
+        background: #aca38e;
+        transition: all ease 0.4s;
+
+        &:hover {
+            background-color: #4f4b3c;
+            color: #aca38e;
+        }
+    }
+
+    .btn2 {
+        border: 1px solid #aca38e;
+        outline: none;
+        padding: 8px 22px;
+        margin-left: 16px;
+        font-size: 14px;
+        border-radius: 32px;
+        /* color: #4f4b3c; */
+        color: #aca38e;
+
+        background: transparent;
+        transition: all ease 0.4s;
+
+        &:hover {
+            background-color: #4f4b3c;
+            color: #aca38e;
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        .nav {
+            left: 25px;
+            right: 25px;
+
+            .nav-wrapper {
+                .logo {
+                    padding-top: 8px;
+
+                    img {
+                        height: 30px;
+
+                    }
+                }
+
+                .btn1 {
+                    padding: 6px 10px;
+                    border-radius: 15px;
+
+                }
+
+                .btn2 {
+                    padding: 6px 10px;
+                    border-radius: 15px;
+                    margin-left: 4px;
+
+                }
+            }
+        }
+    }
+
+    
+</style>

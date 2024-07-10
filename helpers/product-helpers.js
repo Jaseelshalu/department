@@ -51,8 +51,8 @@ module.exports = {
     adduser: (user) => {
         return new Promise((resolve, reject) => {
             db.get().collection(collection.USER_COLLECTION).insertOne(user).then((data) => {
-                db.get().collection(collection.PENDING_COLLECTION).insertOne(userData)
-                db.get().collection(collection.TURN_PENDING_COLLECTION).insertOne(userData)
+                db.get().collection(collection.PENDING_COLLECTION).insertOne(user)
+                db.get().collection(collection.TURN_PENDING_COLLECTION).insertOne(user)
                 resolve(data.insertedId)
             })
         })

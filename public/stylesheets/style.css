@@ -1,4 +1,4 @@
-body {
+/* body {
   
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -201,9 +201,9 @@ margin-bottom: 2rem;
   border-radius: 1rem;
   width: 30%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; */
   /* height: 100%; */
-}
+/* }
 .candidate .info{
   line-height: 1;
   display: flex;
@@ -259,4 +259,4 @@ margin-bottom: 2rem;
   .candidate img{
     width: 50%;
   }
-}
+} */
