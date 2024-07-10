@@ -22,10 +22,12 @@ module.exports = {
         })
     },
     doLogin: (userData) => {
+        let dobParts = userData.Password.split('-');
+        let formattedDob = dobParts[2] + '-' + dobParts[1] + '-' + dobParts[0];
         let response = {}
         return new Promise(async (resolve, reject) => {
             let user = await db.get().collection(collection.USER_COLLECTION).findOne({ Email: userData.Email })
-            if (user && user.Phone === userData.Password) {
+            if (user && user.DOB === formattedDob) {
                 response.user = user;
                 response.status = true
                 resolve(response)
@@ -48,7 +50,7 @@ module.exports = {
             } else {
                 db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
-                    db.get().collection(collection.PENDING_COLLECTION).deleteOne({ userId: data._id })
+                    db.get().collection(collection.PENDING_COLLECTION).deleteOne({ _id: new ObjectId(data.userId) })
                     resolve(response)
                 })
             }

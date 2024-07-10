@@ -5,13 +5,13 @@
             <div class="img-section">
                 <div class="img">
                     <img src="/images/user-images/{{userProfile._id}}.jpg" class="img1" alt="">
-                    <p class="name">{{userProfile.Name}} <br> <span>Chollakal (H)</span></p>
+                    <p class="name">{{userProfile.Name}} <br> <span>{{userProfile.Place }}</span></p>
 
                 </div>
                 <div class="details">
                     <p class="info">Email: <span>{{userProfile.Email}}</span></p>
                     <p class="info">Phone: <span>{{userProfile.Phone}}</span></p>
-                    <p class="info">Place: <span>{{userProfile.Place}}</span></p>
+                    <p class="info">Place: <span>{{userProfile.Address}}</span></p>
                     <p class="info">District: <span>{{userProfile.District}}</span></p>
                     <p class="info">Date of Birth: <span>{{userProfile.DOB}}</span></p>
                     <p class="info institution">Institution: <span>{{userProfile.Institution}}</span></p>
@@ -126,7 +126,7 @@
 
         .main-wrapper {
             position: relative;
-
+            margin-top: 80px;
             border-radius: 40px;
             background: rgb(28, 25, 15);
             background: linear-gradient(90deg, rgba(28, 25, 15, 1) 0%, rgba(54, 46, 22, 1) 100%);
@@ -151,6 +151,7 @@
                         border: 8px solid hsl(41, 23%, 68%);
                         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
                         position: absolute;
+                        object-fit: cover;
                         top: -80px;
                         left: 50%;
                         transform: translateX(-50%);
@@ -184,10 +185,12 @@
                     margin-left: 18px;
 
                     p {
+                        max-width: 250px;
                         font-weight: 600;
 
                         span {
                             font-weight: 400;
+
                         }
                     }
 
@@ -260,7 +263,8 @@
         .main {
             min-height: 100vh;
             height: auto;
-
+        background: rgb(28, 25, 15);
+            background: linear-gradient(90deg, rgba(28, 25, 15, 1) 0%, rgba(54, 46, 22, 1) 100%);
             .container {
                 width: 100%;
                 height: 100vh;
