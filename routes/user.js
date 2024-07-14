@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userHelpers = require('../helpers/user-helpers');
+const { log } = require('logrocket');
 
 /* Session */
 

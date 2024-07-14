@@ -26,15 +26,26 @@ module.exports = {
         let formattedDob = dobParts[2] + '-' + dobParts[1] + '-' + dobParts[0];
         let response = {}
         return new Promise(async (resolve, reject) => {
-            let user = await db.get().collection(collection.USER_COLLECTION).findOne({ Email: userData.Email })
-            if (user && user.DOB === formattedDob) {
-                response.user = user;
-                response.status = true
-                resolve(response)
-            } else {
-                resolve({ status: false })
+            try {
+                let users = await db.get().collection(collection.USER_COLLECTION).find({ Email: userData.Email }).toArray();
+                console.log(users);
+                let userFound = false;
+                for (let user of users) {
+                    if (user.DOB === formattedDob) {
+                        response.user = user;
+                        response.status = true;
+                        userFound = true;
+                        break;
+                    }
+                }
+                if (!userFound) {
+                    response.status = false;
+                }
+                resolve(response);
+            } catch (error) {
+                reject(error);
             }
-        })
+        });
     },
     formTransfer: (data) => {
         return new Promise(async (resolve, reject) => {
