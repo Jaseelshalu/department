@@ -1,4 +1,4 @@
-{{#if profile}}
+
 <header>
     <div class="nav">
         <div class="">
@@ -7,30 +7,13 @@
                     <img src="/images/8.webp" alt="">
                 </div>
                 <div class="btn-section">
-                    <a href="/login" style="text-decoration:none;" class="btn1">Login</a>
+                    <a {{#if user}}href="/logout"{{else}}{{/if}} style="text-decoration:none;" class="btn1">{{#if user}}Logout{{else}}Login{{/if}}</a>
                     <a href="/candidates" style="text-decoration:none;" class="btn2">Candidates</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
-{{else}}
-<header>
-    <div class="nav">
-        <div class="">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="/images/8.webp" alt="">
-                </div>
-                <div class="btn-section">
-                    <a href="/login" style="text-decoration:none;" class="btn1">Login</a>
-                    <a href="/candidates" style="text-decoration:none;" class="btn2">Candidates</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-{{/if}}
 <style>
     .nav {
         position: absolute;
