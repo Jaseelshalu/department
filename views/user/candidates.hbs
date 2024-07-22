@@ -22,115 +22,124 @@
 -->
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Tajawal', sans-serif;
-}
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+    }
 
-body {
-    background: #80765a;
-    color: #fff;
-    font-size: 16px;
-}
+    body {
+        width: 100%;
+        background-color: #544b30;
+        background-size: cover;
+        position: relative;
+        color: black;
 
-.header {
-    text-align: center;
-    padding: 20px;
-}
+    }
 
-.header img {
-    width: 150px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    .container {
+        max-width: 1140px;
+        margin: auto;
+        width: 90%;
+        padding-top: 30px;
+        padding-bottom: 30px;
 
-.card-section {
-    padding: 40px 20px;
-    text-align: center;
-}
+    }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    width: 90%;
-}
+    .header {
+        background: inherit;
+        text-align: center;
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #aca38e;
-    font-weight: 700;
-}
+        img {
+            max-width: 500px;
+            width: 65%;
+        }
+    }
 
-.card-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
-.card {
-    background: #d4cab3;
-    border-radius: 15px;
-    overflow: hidden;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+    .card-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+        .card {
+            border-radius: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            /* width: 250px; */
 
-.img-section {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-}
+            .img-section {
+                border-radius: 10px;
+                text-align: center;
+                background: #000;
+            }
 
-.img-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-bottom: 5px solid #aca38e;
-}
 
-.info-section {
-    padding: 15px;
-    text-align: left;
-}
+            .info-section {
 
-.name {
-    font-size: 20px;
-    font-weight: bold;
-    color: #4f4b3c;
-    margin-bottom: 5px;
-}
+                text-align: center;
+                padding: 10px;
+                color: #000;
+                color: #000;
 
-.place {
-    font-size: 18px;
-    color: #4f4b3c;
-    margin-bottom: 5px;
-}
+                .name {
+                    font-size: 18px;
+                    text-align: center;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
 
-.inst {
-    font-size: 16px;
-    color: #4f4b3c;
-    margin: 10px 0 5px;
-}
+                .place {
+                    font-size: 18px;
+                    text-align: center;
+                }
 
-.institution {
-    font-size: 16px;
-    color: #4f4b3c;
-}
+                .inst {
+                    text-align: center;
+                    padding: 5px;
+                    color: #544b30;
+                    display: inline-block;
+                    margin: 10px;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    background: #000;
+                }
+
+                .institution {
+                    font-size: 18px;
+                }
+
+
+            }
+
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .header {
+
+            /* img{
+            width: 300px;
+        } */
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .card-wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media only screen and (max-width: 596px) {
+        .card-wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 <div class="header">
     <img src="./path/to/your/image.png" alt="">
@@ -145,14 +154,13 @@ h1 {
             <!-- Example card -->
             <div class="card">
                 <div class="img-section">
-                    <img src="/images/user-images/{{this._id}}.jpg" alt="">
+                    <img src="./path/to/your/image.png" alt="">
                 </div>
                 <div class="info-section">
                     <p class="name">{{this.Name}}</p>
                     <p class="place">{{this.Place}}</p>
                     <p class="inst">Institution</p>
-                    <p class="institution">{{this.Institution}}</p><br>
-                    <p class="institution">ST NO: {{this.STNO}}</p>
+                    <p class="institution">{{this.Institution}}</p>
                 </div>
             </div>
             {{/each}}
