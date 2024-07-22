@@ -156,7 +156,7 @@ router.get('/surah', verifyLogin, async (req, res) => {
   if (sub == 'قالون عن نافع') subject.s2 = 'true'
   if (sub == 'البزي عن ابن كثير') subject.s3 = 'true'
   if (sub == 'قنبل عن ابن كثير') subject.s4 = 'true'
-  if (sub == 'الدوري عن الكسائي') subject.s5 = 'true'
+  if (sub == 'الدوري عن ابي عمرو') subject.s5 = 'true'
   if (sub == 'السوسي عن ابي عمرو') subject.s6 = 'true'
   if (sub == 'هشام عن ابن عامر') subject.s7 = 'true'
   if (sub == 'ابن ذكوان عن ابن عامر') subject.s8 = 'true'
@@ -164,7 +164,7 @@ router.get('/surah', verifyLogin, async (req, res) => {
   if (sub == 'خلف عن حمزة') subject.s10 = 'true'
   if (sub == 'خلاد عن حمزة') subject.s11 = 'true'
   if (sub == 'ابو الحارث عن الكسائي') subject.s12 = 'true'
-  if (sub == 'الدوري عن ابي عمرو') subject.s13 = 'true'
+  if (sub == 'الدوري عن الكسائي') subject.s13 = 'true'
 
   let didSurah = await userHelpers.checkingSurah(req.session.user.Name)
   if (didSurah) res.redirect('/')
@@ -202,6 +202,7 @@ router.get('/surah', verifyLogin, async (req, res) => {
     else if (data['sum' + i] == "surahRadio29") unlock.s29 = 'true'
     else if (data['sum' + i] == "surahRadio30") unlock.s30 = 'true'
   }
+  console.log(subject);
   res.render('user/surah', { user: req.session.user, loginErr: req.session.loginErr, subject, unlock })
 })
 
