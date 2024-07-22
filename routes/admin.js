@@ -130,8 +130,8 @@ router.get('/all-users', async (req, res) => {
 })
 
 router.get('/tvshow', async (req, res) => {
-  let userProfile = await productHelpers.tvShow() 
-  res.render('admin/view', { userProfile })  
+  let userProfile = await productHelpers.tvShow()
+  res.render('admin/view', { userProfile })
 })
 
 router.get('/tvshowlive', async (req, res) => {
@@ -168,12 +168,16 @@ router.post('/edit', async (req, res) => {
 })
 
 router.get('/st', async (req, res) => {
-  res.render('admin/st')
+  res.render('admin/st', { judge: true })
 })
 
 router.post('/st', async (req, res) => {
-  productHelpers.getUserST(req.body.userId).then((userProfile) => {
-    res.render('admin/userview', { userProfile })
+  if (req.body.userId == '') res.redirect('/admin/st')
+  productHelpers.getUserST(req.body.userId).then(async (userProfile) => {
+    userProfile.Program = await userHelpers.findSubject(userProfile.Name)
+    userProfile.Surah = await userHelpers.findSurah(userProfile.Name)
+    if (!userProfile) res.redirect('/admin/st')
+    res.render('admin/userview', { userProfile, judge: true })
   })
 })
 

@@ -4,8 +4,6 @@ module.exports = {
     ADMIN_COLLECTION: 'admin',
     SUBJECT_COLLECTION: 'subject',
     PENDING_COLLECTION: 'pending',
-    TURN_COLLECTION: 'form',
-    TURN_PENDING_COLLECTION: 'turnpending',
-    USERDATA_COLLECTION: 'userdata',
-    ARABIC_COLLECTION: 'arabic'
+    SURAH_COLLECTION: 'surah',
+    SURAH_PENDING_COLLECTION: 'surahpending',
 }

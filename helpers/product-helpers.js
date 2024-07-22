@@ -92,7 +92,7 @@ module.exports = {
                     Phone: newuser.Phone
                 }
             })
-            db.get().collection(collection.TURN_COLLECTION).updateOne({ userId: proId }, {
+            db.get().collection(collection.FORM_COLLECTION).updateOne({ userId: proId }, {
                 $set: {
                     Name: newuser.Name,
                     Age: newuser.Age,
@@ -105,7 +105,7 @@ module.exports = {
                     Phone: newuser.Phone
                 }
             })
-            db.get().collection(collection.USERDATA_COLLECTION).updateOne({ userId: proId }, {
+            db.get().collection(collection.SURAH_COLLECTION).updateOne({ userId: proId }, {
                 $set: {
                     Name: newuser.Name,
                     Age: newuser.Age,
@@ -124,7 +124,8 @@ module.exports = {
     },
     getUserST: (stnum) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.USERDATA_COLLECTION).findOne({ STNO: stnum }).then((user) => {
+            db.get().collection(collection.USER_COLLECTION).findOne({ STNO: stnum }).then((user) => {
+                if (user == null) resolve(false)
                 resolve(user)
             })
         })

@@ -6,115 +6,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #7e1441;
-            color: #7e1441;
-        }
-        .sha{
-            max-width: 550px;
-            width: 100%;
+        @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100..800&display=swap');
+        @import url('https://db.onlinewebfonts.com/c/182414135ae67bc66f6425f95c0bc2ec?family=ae_AlMothnna+Bold');
+
+        @font-face {
+            font-family: "ae_AlMothnna Bold";
+            src: url("https://db.onlinewebfonts.com/t/182414135ae67bc66f6425f95c0bc2ec.eot");
+            src: url("https://db.onlinewebfonts.com/t/182414135ae67bc66f6425f95c0bc2ec.eot?#iefix") format("embedded-opentype"),
+                url("https://db.onlinewebfonts.com/t/182414135ae67bc66f6425f95c0bc2ec.woff2") format("woff2"),
+                url("https://db.onlinewebfonts.com/t/182414135ae67bc66f6425f95c0bc2ec.woff") format("woff"),
+                url("https://db.onlinewebfonts.com/t/182414135ae67bc66f6425f95c0bc2ec.ttf") format("truetype"),
+                url("https://db.onlinewebfonts.com/t/182414135ae67bc66f6425f95c0bc2ec.svg#ae_AlMothnna Bold") format("svg");
         }
 
-        .profile-container .turn {
-            width: 60px;
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Anek Malayalam", sans-serif;
+        }
+
+        .main {
+            background: #80765a;
             display: flex;
-            flex-direction: column;
-            line-height: 1;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
             justify-content: center;
-            color: #fff;
-            height: 60px;
-            background-color: #7e1441;
-            border-radius: 1rem;
-        }
-
-        .profile-container .turn span {
-            display: block;
-            font-size: 0.8rem;
-            background-color: #fff;
-            border-radius: 0.3rem;
-            color: #7e1441;
-            padding: 3px 5px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #fff;
-        }
-
-        .profile-container {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            margin-top: 30px;
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-radius: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+            height: 100vh;
+            overflow: hidden;
 
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 1rem;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 2px solid #7e1441;
+                {
+                    {
+                    !-- justify-content: center;
+                    --
+                }
+            }
+
+            align-items: center;
         }
 
         .user-details {
-            line-height: 1.5;
+            text-align: left;
         }
 
-        p {
-            margin: 8px 0;
-            font-size: 1rem;
+        .user-details p {
+            margin: 5px 0;
+            font-size: 16px;
         }
 
-        .logout  {
+        .user-details p strong {
+            color: #aca38e;
+        }
+
+        .profile-container {
+            background: linear-gradient(90deg, rgba(28, 25, 15, 1) 0%, rgba(54, 46, 22, 1) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #fff;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .profile-container img.avatar {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border: 5px solid #aca38e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-container p.turn {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .profile-container p.turn span {
             font-size: 14px;
-            padding: 6px 12px;
-            background-color: #7e1441;
-            color: #fff;
-            border: none;
-            display: inline-flex;
-            display: flex;
-            border-radius: 5px;
-            cursor: pointer;
+            font-weight: normal;
         }
-        .buttons{
-            display: flex;
-            gap: 10px;
-        }
-        .logout:hover{
-            color: #fff;
-        }
-        .sub{
-            padding: 10px 15px;
-            color: #fff;
-            background-color: #7e1441;
-            border-radius: 0.8rem;
-            font-weight: 600;
-            font-size: 1.5rem;
 
+        .profile-container p.sub {
+            font-size: 18px;
+            margin: 10px 0 20px;
         }
+
+        .user-details p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .user-details p strong {
+            color: #aca38e;
+        }
+
+        .btn {
+            border: none;
+            outline: none;
+            padding: 8px 32px;
+            font-size: 14px;
+            border-radius: 32px;
+            color: #4f4b3c;
+            background: #aca38e;
+            transition: all ease 0.4s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #4f4b3c;
+            color: #aca38e;
+        }
+
+        .sha {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+        }
+
+        @media only screen and (max-width: 992px) {
+            .profile-container {
+                padding: 20px;
+            }
+
+            .profile-container img.avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-container p.turn {
+                font-size: 18px;
+            }
+
+            .profile-container p.sub {
+                font-size: 16px;
+            }
+
+            .user-details p {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 6px 16px;
+            }
+        }
+
+        .program-surah-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .program-surah-box p.sub,
+        .program-surah-box p.turn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #544b30;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap');
+
+.program-surah-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.program-surah-box p.sub, .program-surah-box p.turn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #544b30;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+    max-width: 100%;
+    font-family: 'Tajawal', sans-serif; /* Apply the Arabic font */
+}
     </style>
 </head>
-
-<body>
+<div class="main">
     <img class="sha" src="/images/sha.png" alt="">
     <div class="profile-container">
-        <img class="avatar" src="/images/user-images/{{userProfile.userId}}.jpg" alt="User Avatar">
-        <p class="turn">{{userProfile.Turn}} <br><span>Turn</span> </p>
-        <p class="sub"> {{userProfile.Program}}</p> 
+        <img class="avatar" src="/images/user-images/{{userProfile._id}}.jpg" alt="User Avatar">
+        <div class="program-surah-box">
+            <p class="sub">رواية :   {{userProfile.Program.Program}}</p><br>
+            {{#if userProfile.Surah.Surah}}
+            <p class="turn">سورة :   {{userProfile.Surah.Surah}}</p>
+            {{/if}}
+        </div>
         <div class="user-details">
-
             <p><strong>Name:</strong> {{userProfile.Name}}</p>
             <p><strong>Email:</strong> {{userProfile.Email}}</p>
             <p><strong>Address:</strong> {{userProfile.Address}}</p>
@@ -124,14 +217,11 @@
             <p><strong>District:</strong> {{userProfile.District}}</p>
             <p><strong>Date of Birth:</strong> {{userProfile.DOB}}</p>
             <p><strong>Institution:</strong> {{userProfile.Institution}}</p>
-            <!-- Add more user details as needed -->
         </div>
         <div class="buttons">
-        <a href="/candidates" class="btn logout ">Candidates</a>
-
+            <a href="/candidates" class="btn logout">Candidates</a>
         </div>
-
     </div>
-</body>
+</div>
 
 </html>

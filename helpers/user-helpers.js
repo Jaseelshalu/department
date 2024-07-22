@@ -13,7 +13,7 @@ module.exports = {
             } else {
                 db.get().collection(collection.USER_COLLECTION).insertOne(userData).then(() => {
                     db.get().collection(collection.PENDING_COLLECTION).insertOne(userData)
-                    db.get().collection(collection.TURN_PENDING_COLLECTION).insertOne(userData)
+                    db.get().collection(collection.SURAH_PENDING_COLLECTION).insertOne(userData)
                     response.user = userData
                     response.status = true
                     resolve(response)
@@ -28,7 +28,6 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             try {
                 let users = await db.get().collection(collection.USER_COLLECTION).find({ Email: userData.Email }).toArray();
-                console.log(users);
                 let userFound = false;
                 for (let user of users) {
                     if (user.DOB === formattedDob) {
@@ -67,20 +66,58 @@ module.exports = {
             }
         })
     },
+    surahTransfer: (data) => {
+        return new Promise(async (resolve, reject) => {
+            let response = {}
+            let exist = await db.get().collection(collection.SURAH_COLLECTION).findOne({ UserId: data.userId })
+            let sub = await db.get().collection(collection.SURAH_COLLECTION).findOne({ RadioName: data.RadioName })
+            console.log(exist);
+            if (exist) {
+                response.exist = "You are already submitted"
+                resolve(response)
+            } else if (sub) {
+                response.sub = "This subject already taken"
+                resolve(response)
+            } else {
+                db.get().collection(collection.SURAH_COLLECTION).insertOne(data).then(async (result) => {
+                    response.result = result
+                    db.get().collection(collection.SURAH_PENDING_COLLECTION).deleteOne({ _id: new ObjectId(data.userId) })
+                    resolve(response)
+                })
+            }
+        })
+    },
     unlockedItems: () => {
         return new Promise(async (resolve, reject) => {
-            let rrrr = {}
+            let result = {}
             let documents = await db.get().collection(collection.FORM_COLLECTION).find({ RadioName: { $exists: true } }).toArray()
             if (documents && documents.length > 0) {
                 const numIterations = Math.min(30, documents.length);
                 for (let i = 1; i <= numIterations; i++) {
                     if (documents[i - 1].RadioName) {
-                        rrrr['sum' + i] = documents[i - 1].RadioName;
+                        result['sum' + i] = documents[i - 1].RadioName;
                     }
                 }
-                resolve(rrrr);
+                resolve(result);
             } else {
-                resolve(rrrr)
+                resolve(result)
+            }
+        })
+    },
+    unlockedSurahs: () => {
+        return new Promise(async (resolve, reject) => {
+            let result = {}
+            let documents = await db.get().collection(collection.SURAH_COLLECTION).find({ RadioName: { $exists: true } }).toArray()
+            if (documents && documents.length > 0) {
+                const numIterations = Math.min(30, documents.length);
+                for (let i = 1; i <= numIterations; i++) {
+                    if (documents[i - 1].RadioName) {
+                        result['sum' + i] = documents[i - 1].RadioName;
+                    }
+                }
+                resolve(result);
+            } else {
+                resolve(result)
             }
         })
     },
@@ -98,9 +135,23 @@ module.exports = {
             })
         })
     },
+    findSurah: (name) => { // new
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.SURAH_COLLECTION).findOne({ Name: name }, { Name: 0, Program: 1 }).then((sub) => {
+                resolve(sub)
+            })
+        })
+    },
     checkingForm: (name) => {
         return new Promise(async (resolve, reject) => {
             let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name })
+            if (exist) resolve({ staus: true })
+            else resolve(false)
+        })
+    },
+    checkingSurah: (name) => { // new
+        return new Promise(async (resolve, reject) => {
+            let exist = await db.get().collection(collection.SURAH_COLLECTION).findOne({ Name: name })
             if (exist) resolve({ staus: true })
             else resolve(false)
         })
@@ -116,13 +167,6 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let candidates = await db.get().collection(collection.USER_COLLECTION).find().toArray()
             resolve(candidates)
-        })
-    },
-    getUserId: () => {
-        return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.USER_COLLECTION).findOne({ Name: name }).then((data) => {
-                resolve(data)
-            })
         })
     }
 }
