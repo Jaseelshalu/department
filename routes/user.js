@@ -17,17 +17,18 @@ const verifyLogin = (req, res, next) => {
 router.get('/', async function (req, res, next) {
   if (req.session.user) {
     let didForm = await userHelpers.checkingForm(req.session.user.Name)
-    let surahSelection = await userHelpers.checkingSurah(req.session.user.Name) // new
-    // if (didForm) {
-    if (didForm && surahSelection) { // new
+    // let surahSelection = await userHelpers.checkingSurah(req.session.user.Name) // new
+    if (didForm) {
+    // if (didForm && surahSelection) { // new
       let subject = await userHelpers.findSubject(req.session.user.Name)
       let surah = await userHelpers.findSurah(req.session.user.Name)
+      let tlink = await userHelpers.findTlink(subject.Program)
       let userProfile = await userHelpers.getUserProfile(req.session.user.Name)
-      res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, surah, profile: true, userProfile });
+      res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, surah, profile: true, userProfile, tlink });
       req.session.loginErr = false
     }
-    // else res.redirect('/form')
-    else res.redirect('/surah') // new
+    else res.redirect('/form')
+    // else res.redirect('/surah') // new
   } else {
     res.redirect('/login')
   }

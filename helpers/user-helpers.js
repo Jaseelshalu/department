@@ -58,6 +58,11 @@ module.exports = {
                 response.sub = "This subject already taken"
                 resolve(response)
             } else {
+                db.get().collection(collection.SUBJECTS_COLLECTION).findOne({code: data.Program}).then((res) => {
+                    data.Program = res.subject
+                    console.log(data);
+                })
+                
                 db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
                     db.get().collection(collection.PENDING_COLLECTION).deleteOne({ _id: new ObjectId(data.userId) })
@@ -139,6 +144,18 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             db.get().collection(collection.SURAH_COLLECTION).findOne({ Name: name }, { Name: 0, Program: 1 }).then((sub) => {
                 resolve(sub)
+            })
+        })
+    },
+    findTlink: (sub) => { // new
+        return new Promise(async (resolve, reject) => {
+            db.get().collection(collection.SUBJECTS_COLLECTION).findOne(
+                { subject: sub },
+                { projection: { tlink: 1, _id: 0 } }
+            ).then((tlink) => {
+                resolve(tlink)
+            }).catch((err) => {
+                reject(err)
             })
         })
     },
