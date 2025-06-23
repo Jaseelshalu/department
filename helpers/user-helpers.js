@@ -58,10 +58,11 @@ module.exports = {
                 response.sub = "This subject already taken"
                 resolve(response)
             } else {
-                db.get().collection(collection.SUBJECTS_COLLECTION).findOne({code: data.Program}).then((res) => {
+                console.log(data);
+                
+                let res = await db.get().collection(collection.SUBJECTS_COLLECTION).findOne({code: data.Program})
                     data.Program = res.subject
                     console.log(data);
-                })
                 
                 db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
