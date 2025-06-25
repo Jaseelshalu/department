@@ -160,9 +160,9 @@ module.exports = {
             })
         })
     },
-    checkingForm: (name) => {
+    checkingForm: (id) => {
         return new Promise(async (resolve, reject) => {
-            let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name })
+            let exist = await db.get().collection(collection.FORM_COLLECTION).findOne({ userId: id })
             if (exist) resolve({ staus: true })
             else resolve(false)
         })

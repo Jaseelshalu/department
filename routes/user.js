@@ -16,7 +16,7 @@ const verifyLogin = (req, res, next) => {
 /* GET home page. */
 router.get('/', async function (req, res, next) {
   if (req.session.user) {
-    let didForm = await userHelpers.checkingForm(req.session.user.Name)
+    let didForm = await userHelpers.checkingForm(req.session.user._id)
     // let surahSelection = await userHelpers.checkingSurah(req.session.user.Name) // new
     if (didForm) {
     // if (didForm && surahSelection) { // new
