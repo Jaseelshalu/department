@@ -20,10 +20,10 @@ router.get('/', async function (req, res, next) {
     // let surahSelection = await userHelpers.checkingSurah(req.session.user.Name) // new
     if (didForm) {
     // if (didForm && surahSelection) { // new
-      let subject = await userHelpers.findSubject(req.session.user.Name)
-      let surah = await userHelpers.findSurah(req.session.user.Name)
+      let subject = await userHelpers.findSubject(req.session.user._id)
+      let surah = await userHelpers.findSurah(req.session.user._id)
       let tlink = await userHelpers.findTlink(subject.Program)
-      let userProfile = await userHelpers.getUserProfile(req.session.user.Name)
+      let userProfile = await userHelpers.getUserProfile(req.session.user._id)
       res.render('user/index', { user: req.session.user, loginErr: req.session.loginErr, title: req.body.formRadio, subject, surah, profile: true, userProfile, tlink });
       req.session.loginErr = false
     }
@@ -86,7 +86,7 @@ router.post('/signup', (req, res) => {
 })
 
 router.get('/form', verifyLogin, async (req, res) => {
-  let didForm = await userHelpers.checkingForm(req.session.user.Name)
+  let didForm = await userHelpers.checkingForm(req.session.user._id)
   if (didForm) res.redirect('/')
   let data = await userHelpers.unlockedItems()
   let unlock = {}
@@ -152,7 +152,7 @@ router.post('/form', (req, res) => {
 
 router.get('/surah', verifyLogin, async (req, res) => {
   let subject = {}
-  let sub = await userHelpers.findSubject(req.session.user.Name); sub = sub.Program
+  let sub = await userHelpers.findSubject(req.session.user._id); sub = sub.Program
   if (sub == 'ورش عن نافع') subject.s1 = 'true'
   if (sub == 'قالون عن نافع') subject.s2 = 'true'
   if (sub == 'البزي عن ابن كثير') subject.s3 = 'true'
@@ -167,7 +167,7 @@ router.get('/surah', verifyLogin, async (req, res) => {
   if (sub == 'ابو الحارث عن الكسائي') subject.s12 = 'true'
   if (sub == 'الدوري عن الكسائي') subject.s13 = 'true'
 
-  let didSurah = await userHelpers.checkingSurah(req.session.user.Name)
+  let didSurah = await userHelpers.checkingSurah(req.session.user._id)
   if (didSurah) res.redirect('/')
   let data = await userHelpers.unlockedSurahs()
   let unlock = {}

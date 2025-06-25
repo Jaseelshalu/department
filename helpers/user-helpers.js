@@ -134,16 +134,16 @@ module.exports = {
             })
         })
     },
-    findSubject: (name) => {
+    findSubject: (id) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.FORM_COLLECTION).findOne({ Name: name }, { Name: 0, Program: 1 }).then((sub) => {
+            db.get().collection(collection.FORM_COLLECTION).findOne({ userId: id }, { userId: 0, Program: 1 }).then((sub) => {
                 resolve(sub)
             })
         })
     },
-    findSurah: (name) => { // new
+    findSurah: (id) => { // new
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.SURAH_COLLECTION).findOne({ Name: name }, { Name: 0, Program: 1 }).then((sub) => {
+            db.get().collection(collection.SURAH_COLLECTION).findOne({ userId: id }, { userId: 0, Program: 1 }).then((sub) => {
                 resolve(sub)
             })
         })
@@ -167,16 +167,16 @@ module.exports = {
             else resolve(false)
         })
     },
-    checkingSurah: (name) => { // new
+    checkingSurah: (id) => { // new
         return new Promise(async (resolve, reject) => {
-            let exist = await db.get().collection(collection.SURAH_COLLECTION).findOne({ Name: name })
+            let exist = await db.get().collection(collection.SURAH_COLLECTION).findOne({ userId: id })
             if (exist) resolve({ staus: true })
             else resolve(false)
         })
     },
-    getUserProfile: (name) => {
+    getUserProfile: (id) => {
         return new Promise(async (resolve, reject) => {
-            db.get().collection(collection.USER_COLLECTION).findOne({ Name: name }).then((data) => {
+            db.get().collection(collection.USER_COLLECTION).findOne({ _id: new ObjectId(id) }).then((data) => {
                 resolve(data)
             })
         })
