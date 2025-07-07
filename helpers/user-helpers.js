@@ -235,8 +235,7 @@ module.exports = {
                     }
                 }
             ]).toArray();
-            console.log(users);
-
+            resolve(users)
         })
     }
 }

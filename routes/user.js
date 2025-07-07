@@ -223,6 +223,7 @@ router.post('/surah', (req, res) => {
 
 router.get('/api/users', async (req, res) => {
   let users = await userHelpers.getUsersApi()
+  res.json(users)
 })
 
 module.exports = router;
