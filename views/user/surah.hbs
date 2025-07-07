@@ -12,7 +12,7 @@
         <span class="divider">Let's Choose</span>
         <div class="main-div-wrapper" id="locking">
             <form action="/surah" method="post" onsubmit="return validateSurah()">
-                <input type="text" name="UserId" value="{{user._id}}" hidden>
+                <input type="text" name="userId" value="{{user._id}}" hidden>
                 <div class="options1" id="options1">
                     {{#if subject.s1}}
                     <div class="lock {{#if unlock.s1}}unlock{{/if}}" {{#if unlock.s1}}{{else}}onclick="selectRadio(1)"
@@ -270,16 +270,6 @@
                     <input type="radio" name="RadioName" value="surahRadio28" id="surahRadio28" hidden>
                     <input type="radio" name="RadioName" value="surahRadio29" id="surahRadio29" hidden>
                     <input type="radio" name="RadioName" value="surahRadio30" id="surahRadio30" hidden>
-                    <input type="text" name="Name" value="{{user.Name}}" hidden>
-                    <input type="text" name="Age" value="{{user.Age}}" hidden>
-                    <input type="text" name="Place" value="{{user.Place}}" hidden>
-                    <input type="text" name="Address" value="{{user.Address}}" hidden>
-                    <input type="text" name="District" value="{{user.District}}" hidden>
-                    <input type="text" name="Email" value="{{user.Email}}" hidden>
-                    <input type="text" name="DOB" value="{{user.DOB}}" hidden>
-                    <input type="text" name="Phone" value="{{user.Phone}}" hidden>
-                    <input type="text" name="Institution" value="{{user.Institution}}" hidden>
-                    <input type="text" name="STNO" value="{{user.STNO}}" hidden>
                 </div>
                 <div class="btn-div">
                     <button class="btn3">submit</button>

@@ -59,11 +59,11 @@ module.exports = {
                 resolve(response)
             } else {
                 console.log(data);
-                
-                let res = await db.get().collection(collection.SUBJECTS_COLLECTION).findOne({code: data.Program})
-                    data.Program = res.subject
-                    console.log(data);
-                
+
+                let res = await db.get().collection(collection.SUBJECTS_COLLECTION).findOne({ code: data.Program })
+                data.Program = res.subject
+                console.log(data);
+
                 db.get().collection(collection.FORM_COLLECTION).insertOne(data).then(async (result) => {
                     response.result = result
                     db.get().collection(collection.PENDING_COLLECTION).deleteOne({ _id: new ObjectId(data.userId) })
@@ -185,6 +185,58 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let candidates = await db.get().collection(collection.USER_COLLECTION).find().toArray()
             resolve(candidates)
+        })
+    },
+    getUsersApi: () => {
+        return new Promise(async (resolve, reject) => {
+            let users = await db.get().collection(collection.USER_COLLECTION).aggregate([
+                {
+                    $lookup: {
+                        from: collection.FORM_COLLECTION,
+                        let: { userIdStr: { $toString: '$_id' } },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: { $eq: ['$userId', '$$userIdStr'] }
+                                }
+                            },
+                            { $limit: 1 } // Only one program
+                        ],
+                        as: 'subject'
+                    }
+                },
+                {
+                    $lookup: {
+                        from: collection.SURAH_COLLECTION,
+                        let: { userIdStr: { $toString: '$_id' } },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: { $eq: ['$userId', '$$userIdStr'] }
+                                }
+                            },
+                            { $limit: 1 } // Only one subject
+                        ],
+                        as: 'surah'
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        Code: 1,
+                        Name: 1,
+                        Institution: 1,
+                        Place: 1,
+                        Email: 1,
+                        Phone: { $toString: '$Phone' },
+                        DOB: 1,
+                        subject: { $arrayElemAt: ['$subject.Program', 0] },
+                        surah: { $arrayElemAt: ['$surah.Subject', 0] }
+                    }
+                }
+            ]).toArray();
+            console.log(users);
+
         })
     }
 }
